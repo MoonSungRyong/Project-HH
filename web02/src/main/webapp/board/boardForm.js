@@ -94,9 +94,3 @@ function ajaxLoginUser() {
 	    $("#userName").text(result.data.name);
     })
 }
-
-
-
-
-
-

@@ -13,11 +13,3 @@ public interface BoardDao {
   int update(Board board) throws Exception;
   int delete(int no) throws Exception;
 }
-
-
-
-
-
-
-
-

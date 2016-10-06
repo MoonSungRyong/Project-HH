@@ -74,10 +74,3 @@ public class Board implements Serializable {
     this.password = password;
   }
 }
-
-
-
-
-
-
-

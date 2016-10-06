@@ -14,17 +14,9 @@ function ajaxBoardList() {
 	    	 return
 	    }
 		
-		var contents = ""
-	    var arr = result.data
-	    for (var i in arr) {
-	    	contents += "<tr>" +
-	    	  "<td>" + arr[i].no + "</td>" + 
-	    	  "<td><a class='titleLink' href='#' data-no='" + arr[i].no + "'>" + arr[i].title + "</a></td>" +
-	    	  "<td>" + arr[i].createdDate2 + "</td>" +
-	    	  "<td>" + arr[i].viewCount + "</td>" + 
-	    	  "</tr>"
-	    }
-	    $("#boardTable tbody").html(contents)
+	    var template = Handlebars.compile($('#trTemplateText').html())
+	    $("#boardTable tbody").html(template(result))
+	    
 	    $(".titleLink").click(function(event) {
 		    window.location.href = "boardForm.html?no=" + $(this).attr("data-no")
 	    })
@@ -44,7 +36,3 @@ function ajaxLoginUser() {
 	    $("#userName").text(result.data.name);
     })
 }
-
-
-
-

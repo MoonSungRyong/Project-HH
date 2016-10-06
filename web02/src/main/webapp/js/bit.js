@@ -14,8 +14,3 @@ bit.cookieToObject = function() {
     
 	return obj
 }
-
-
-
-
-
