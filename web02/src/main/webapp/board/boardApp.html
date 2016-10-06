@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+
+<style>
+.container {
+  width: 600px;
+}
+</style>
+</head>
+<body>
+<div class="container">     
+<div style='background-color:navy;font-size:150%;color:white;position:relative;'>
+  자바85기^^
+
+  <div style='position:absolute;right:0px;top:0px;font-size:15px;'>
+    <span id="userName" class="my-login"></span>
+    <a id="loginBtn" href='#' class="btn btn-success btn-xs my-logout">로그인</a>
+    <a id="logoutBtn" href='#' class="btn btn-success btn-xs my-login">로그아웃</a>
+  </div>
+        
+</div>
+
+
+<h1>게시물 목록조회</h1>
+<p><button type="button" class="btn btn-primary btn-sm" 
+           onclick="location.href='boardForm.html'">새 글</button></p>
+
+<table id="boardTable" class="table table-hover">
+<thead>
+<tr>
+  <th>번호</th>
+  <th>제목</th>
+  <th>등록일</th>
+  <th>조회수</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+      
+<p style='background-color:yellow; text-align:center;'>
+  이 예제는 자바85기에서 사용한 것입니다.</p>
+</div>
+
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/bit.js"></script>
+<script type="text/javascript" src="boardApp.js"></script>
+<script>
+ajaxLoginUser() // 로그인 유저 정보 가져오기
+ajaxBoardList() // 게시물 목록 가져오기
+</script>
+
+
+</body>
+</html>
