@@ -33,5 +33,13 @@
           
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		  <property name="basePackage" value="example.dao" />
-		</bean>
+		</bean>        
 </beans>
+
+
+
+
+
+
+
+
