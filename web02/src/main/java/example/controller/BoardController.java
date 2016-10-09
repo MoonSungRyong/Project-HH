@@ -1,21 +1,29 @@
 package example.controller;
 
+import java.io.File;
 import java.util.HashMap;
+
+import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import example.dao.BoardDao;
+import example.dao.BoardFileDao;
+import example.util.FileUploadUtil;
 import example.vo.Board;
+import example.vo.BoardFile;
 import example.vo.JsonResult;
 
 @Controller 
 @RequestMapping("/board/")
 public class BoardController {
-  
+  @Autowired ServletContext sc;
   @Autowired BoardDao boardDao;
+  @Autowired BoardFileDao boardFileDao;
   
   @RequestMapping(path="list")
   public Object list(
@@ -35,15 +43,39 @@ public class BoardController {
   }
   
   @RequestMapping(path="add")
-  public Object add(Board board) throws Exception {
-    try {
-      boardDao.insert(board);
-      return JsonResult.success();
-      
-    } catch (Exception e) {
-      return JsonResult.fail(e.getMessage());
+  public Object add(
+      Board board,
+      MultipartFile file1,
+      MultipartFile file2) throws Exception {
+    
+   boardDao.insert(board);
+    
+   String newFilename = null;
+    if (!file1.isEmpty()) {
+      newFilename = FileUploadUtil.getNewFilename(file1.getOriginalFilename());
+      try {
+        file1.transferTo(new File(sc.getRealPath("/upload/" + newFilename)));
+        BoardFile boardFile = new BoardFile();
+        boardFile.setFilename(newFilename);
+        boardFile.setBoardNo(board.getNo());
+        boardFileDao.insert(boardFile);
+      } catch (Exception e) {}
     }
-  }
+    
+    if (!file2.isEmpty()) {
+      newFilename = FileUploadUtil.getNewFilename(file2.getOriginalFilename());
+      try {
+        file2.transferTo(new File(sc.getRealPath("/upload/" + newFilename)));
+        BoardFile boardFile = new BoardFile();
+        boardFile.setFilename(newFilename);
+        boardFile.setBoardNo(board.getNo());
+        boardFileDao.insert(boardFile);
+      } catch (Exception e) {}
+    }
+    
+   
+    return "redirect:list.do";
+  } 
   
   @RequestMapping(path="detail")
   public Object detail(int no) throws Exception {
