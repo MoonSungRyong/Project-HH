@@ -2,7 +2,7 @@ package example.vo;
 
 import java.io.Serializable;
 
-public class BoardFile implements Serializable {
+public class BoardFile implements Serializable{
   private static final long serialVersionUID = 1L;
   
   protected int no;

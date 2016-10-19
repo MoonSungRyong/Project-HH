@@ -3,5 +3,5 @@ package example.dao;
 import example.vo.BoardFile;
 
 public interface BoardFileDao {
-  int insert(BoardFile foardFile);
+  int insert(BoardFile boardFile);
 }

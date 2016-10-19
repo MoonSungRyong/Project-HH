@@ -35,36 +35,45 @@ public class DefaultBoardService implements BoardService {
     boardDao.insert(board);
     
     String newFilename = null;
-    if (!file1.isEmpty()) {
+    if (file1 != null && !file1.isEmpty()) {
       newFilename = FileUploadUtil.getNewFilename(file1.getOriginalFilename());
-      try {
-        file1.transferTo(new File(uploadDir + newFilename));
-        BoardFile boardFile = new BoardFile();
-        boardFile.setFilename(newFilename);
-        //boardFile.setBoardNo(board.getNo());
-        boardFile.setBoardNo(10200);
-        boardFileDao.insert(boardFile);
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
+      file1.transferTo(new File(uploadDir + newFilename));
+      BoardFile boardFile = new BoardFile();
+      boardFile.setFilename(newFilename);
+      boardFile.setBoardNo(board.getNo());
+      //boardFile.setBoardNo(10200); //트랜잭션 테스트 용 
+      boardFileDao.insert(boardFile);
     }
     
-    if (!file2.isEmpty()) {
+    if (file2 != null && !file2.isEmpty()) {
       newFilename = FileUploadUtil.getNewFilename(file2.getOriginalFilename());
-      try {
-        file2.transferTo(new File(uploadDir + newFilename));
-        BoardFile boardFile = new BoardFile();
-        boardFile.setFilename(newFilename);
-        boardFile.setBoardNo(board.getNo());
-        boardFileDao.insert(boardFile);
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
+      file2.transferTo(new File(uploadDir + newFilename));
+      BoardFile boardFile = new BoardFile();
+      boardFile.setFilename(newFilename);
+      boardFile.setBoardNo(board.getNo());
+      boardFileDao.insert(boardFile);
     }
   }
   
   public Board getBoard(int no) throws Exception {
     return boardDao.selectOne(no);
+  }
+  
+  public Board getBoard(int no, String password) throws Exception {
+    HashMap<String,Object> paramMap = new HashMap<>();
+    paramMap.put("no", no);
+    paramMap.put("password", password);
+    return boardDao.selectOneByPassword(paramMap);
+  }
+  
+  @Override
+  public int getTotalPage(int pageSize) throws Exception {
+    int countAll = boardDao.countAll();
+    int totalPage = countAll / pageSize;
+    if ((countAll % pageSize) > 0) {
+      totalPage++;
+    }
+    return totalPage;
   }
   
   public void updateBoard(Board board) throws Exception {
@@ -82,3 +91,10 @@ public class DefaultBoardService implements BoardService {
     boardDao.delete(no);
   }
 }
+
+
+
+
+
+
+

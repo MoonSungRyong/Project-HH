@@ -13,8 +13,8 @@
     insert into board_files(bno, filename)
     values(#{boardNo}, #{filename})
   </insert>
-  
 </mapper>
+
 
 
 

@@ -43,7 +43,7 @@
     where no=#{no} and password=password(#{password})
   </select>
   
-  <insert id="insert" parameterType="board"
+  <insert id="insert" parameterType="board" 
           useGeneratedKeys="true" keyColumn="no" keyProperty="no">
     insert into boards(title, conts, password, cre_dt)
     values(#{title}, #{contents}, password(#{password}), now())
@@ -60,4 +60,29 @@
     delete from boards 
     where no=#{value}
   </delete>
+  
+  <select id="countAll" resultType="int">
+    select count(*) 
+    from boards
+  </select>
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
