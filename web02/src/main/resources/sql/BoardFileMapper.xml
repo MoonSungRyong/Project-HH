@@ -14,23 +14,3 @@
     values(#{boardNo}, #{filename})
   </insert>
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

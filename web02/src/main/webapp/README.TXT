@@ -1,1 +1,0 @@
-웹 자원(HTML, CSS, JAVASCRIPT, GIF 등)을 두는 폴더

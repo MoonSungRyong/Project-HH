@@ -14,11 +14,3 @@ public interface BoardDao {
   int delete(int no) throws Exception;
   int countAll() throws Exception;
 }
-
-
-
-
-
-
-
-

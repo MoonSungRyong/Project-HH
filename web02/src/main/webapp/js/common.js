@@ -1,1 +1,1 @@
-var serverAddr = "http://localhost:8080/webapp01"
+var serverAddr = "http://localhost:8080/web02"

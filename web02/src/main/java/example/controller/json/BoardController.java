@@ -91,12 +91,5 @@ public class BoardController {
     } catch (Exception e) {
       return JsonResult.fail(e.getMessage());
     }
-  }
+  } 
 }
-
-
-
-
-
-
-

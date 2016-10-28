@@ -15,10 +15,3 @@ public interface BoardService {
   void updateBoard(Board board) throws Exception;
   void deleteBoard(int no) throws Exception;
 }
-
-
-
-
-
-
-
