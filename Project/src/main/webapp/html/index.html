@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="shortcut icon" href="../images/favicon.ico">
+<title>Home & Human</title>
+
+<link rel="stylesheet"
+	href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css"
+	rel="stylesheet" type="text/css">
+<link href="../css/index.css" rel="stylesheet" type="text/css" />
+<link href="../css/auth/login.css" rel="stylesheet" type="text/css">
+<link href="../css/auth/join.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+	<div id="wrap">
+		<div id="logo">
+			<a href="../html/index.html"><img src="../images/hhlogo.png"></a>
+		</div>
+
+		<!-- Modal 회원가입 -->
+		<div class="modal fade" id="joinModal" role="dialog">
+			<div class="modal-dialog">
+				<div id="join-modal-content" class="modal-content">
+					<div class="modal-header"></div>
+				</div>
+			</div>
+		</div> 
+		
+		<!-- <div id="contents">
+			<div id="main1">
+				<h1 id="mp">Welcom to Home & Human !</h1>
+				<p id="sp"></p>
+			</div>
+		</div> -->
+		
+		<div class="main1">
+					
+			<p class="typist" style="color:#009fe3;
+			font-family: Renogare; font-size: 500%"></p>
+			<p class="typistAdd"></p>
+			
+		</div>
+		
+		<div id="main2">
+
+			<div class="subLogin">
+				<a href="#"><img id="kakaoLoginBtn"
+					src="../images/kakao_account_login_btn_large_wide.png"></a>
+			</div>
+
+			<div class="login">
+				<label for="inputUserEmail"></label> <input type="text"
+					class="form-control" id="email" placeholder="아이디를 입력하세요 (이메일 형식)">
+
+				<label for="inputUserPassword"></label> <input type="password"
+					class="form-control" id="password" placeholder="비밀번호를 입력하세요">
+			</div>
+
+			<div class="checkbox">
+				<label class="saveEmail"> <input type="checkbox"
+					id="saveEmail">아이디저장
+				</label>
+			</div>
+
+			<button type="button" id="loginBtn" class="btn btn-default">로그인</button>
+			<a data-toggle="modal" data-target="#joinModal"
+				href="../html/auth/join.html">
+				<button type="button" id="signBtn" class="btn btn-default">회원가입</button>
+			</a>
+		</div>
+
+	</div>
+
+	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+	
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/bit.js"></script>
+	<script src="../js/index.js"></script>
+	<script src="../js/jquery.typist.js"></script>
+
+	<script type="text/javascript">
+		init()
+		ajaxLogout()
+	</script>
+
+	<script type="text/javascript">
+		$('#joinModal').on('hidden.bs.modal', function() {
+			$(this).removeData('bs.modal');
+		});
+	</script>
+	
+	<script type="text/javascript">
+	$('.typist')
+	.typist({
+		speed: 5,
+		text: 'Connecting\n'
+	})
+	.typistAdd('Home & Human');
+	</script>
+
+</body>
+</html>
