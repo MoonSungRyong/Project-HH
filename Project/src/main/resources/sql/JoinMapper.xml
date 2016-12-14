@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="objackie.dao.JoinDao">
+  <resultMap type="Member" id="MemberMap">
+    <id column="EMAIL" property="email" />
+    <result column="NAME" property="name" />
+    <result column="TEL" property="tel" />
+    <result column="BIRTH" property="birth" />
+    <result column="PWD" property="password" />
+    <result column="GEND" property="gender" />
+    <result column="AUTH" property="auth" />
+    <result column="PHO_PATH" property="phoPath" />
+  </resultMap>
+  
+  <insert id="insert" parameterType="Member">
+    insert into MEMBS(EMAIL, NAME, PWD, TEL, GEND, BIRTH, AUTH, PHO_PATH)
+    values(#{email}, #{name}, #{password}, #{tel}, #{gender}, #{birth}, #{auth}, #{phoPath})
+  </insert>
+  
+  <update id="updatePhoto0" parameterType="Member">
+  	update MEMBS set pho_path=#{phoPath}, pwd=#{password} where email=#{email}
+  </update>
+  
+  <update id="updatePhoto1" parameterType="Member">
+  	update MEMBS set PWD=#{password} where email=#{email}
+  </update>
+  
+  <update id="updatePhoto2" parameterType="Member">
+  	update MEMBS set PWD=#{password}, pho_path=#{phoPath} where email=#{email}
+  </update>
+  
+</mapper>
+
+
+
+

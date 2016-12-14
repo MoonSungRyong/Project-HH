@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en-gb" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="shortcut icon" href="../../images/favicon.ico">
+<title>임차인 메인</title>
+<link id="data-uikit-theme" rel="stylesheet" href="../../node_modules/uikit/docs/css/uikit.docs.min.css"> 
+<link rel="stylesheet" href="../../node_modules/uikit/docs/css/docs.css">
+<link rel="stylesheet" href="../../node_modules/uikit/vendor/highlight/highlight.css">
+
+</head>  
+
+<body class="tm-background">
+
+	<nav class="tm-navbar uk-navbar uk-navbar-attached">
+		<div class="uk-container uk-container-center">
+
+
+		</div>
+	</nav>
+
+	<div class="tm-middle">
+		<div class="uk-container uk-container-center">
+
+			<div class="uk-grid" data-uk-grid-margin>
+			
+				<div class="tm-main uk-width-medium-3-4">
+
+					<article class="uk-article">
+
+						<ul id="filter" class="uk-subnav uk-subnav-pill">
+							<li class="uk-active" data-uk-filter=""><a href="#">전체보기</a></li>
+							<li data-uk-filter="filter-a"><a href="#">커뮤니티</a></li>
+							<li data-uk-filter="filter-b"><a href="#">미정리</a></li>
+							<li data-uk-filter="filter-c"><a href="#">찌꺼기</a></li>
+						</ul> 
+
+						<div
+							class="uk-grid-width-small-1-2 uk-grid-width-medium-1-3 uk-grid-width-large-1-4 tm-grid-heights"
+							data-uk-grid="{gutter: 20, controls: '#filter'}">
+							<div data-uk-filter="filter-b">
+								<a href="../auth/myinfo.html"><div class="uk-panel-box">내 정보</div></a>
+							</div>
+							<div data-uk-filter="filter-b">
+								<div class="uk-panel-box">관리비 정보</div>
+							</div>
+							<div data-uk-filter="filter-a">
+								<a href="../board/complain_t.html"><div class="uk-panel-box">나의 민원</div></a>
+							</div>
+							<div data-uk-filter="filter-a">
+								<a href="../board/gongzi.html"><div class="uk-panel-box">공지 사항</div></a>
+							</div>
+							<div data-uk-filter="filter-c">
+								<div class="uk-panel-box">서비스 1</div>
+							</div>
+							<div data-uk-filter="filter-c">
+								<div class="uk-panel-box">서비스 2</div>
+							</div>
+							<div data-uk-filter="filter-c">
+								<div class="uk-panel-box">서비스 3</div>
+							</div>
+							<div data-uk-filter="filter-c">
+								<div class="uk-panel-box">서비스 4</div>
+							</div>
+						</div>
+
+					</article>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	
+<script src="../../node_modules/uikit/vendor/jquery.js"></script>
+<script src="../../node_modules/uikit/dist/js/uikit.min.js"></script>
+<script src="../../node_modules/uikit/vendor/highlight/highlight.js"></script>
+<script src="../../node_modules/uikit/docs/js/docs.js"></script>
+<script src="../../node_modules/uikit/src/js/components/grid.js"></script>
+</body>
+</html>

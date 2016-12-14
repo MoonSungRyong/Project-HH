@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="objackie.dao.RealEstateContractDao">
+  <resultMap type="realestatecontract" id="realestatecontractMap">
+    <id column="CRCT_NO" property="contractNo" />
+    <result column="BUILD_NO" property="buildNo" />
+    <result column="T_EMAIL" property="tenantEmail" />
+    <result column="CRCT_TYPE" property="contractType" />
+    <result column="DPST" property="deposit" />
+    <result column="R_AMNT" property="rentAmount" />
+    <result column="CRCT_DT" property="contractDate" />
+    <result column="END_DT" property="endDate" />
+    <result column="RTPAY_DT" property="rentPayDate" />
+    <result column="UTPAY_DT" property="utilityPayDate" />
+    <result column="CRCT_STAT" property="contractStatus" />
+    <result column="NAME" property="name" />
+    <result column="EMAIL" property="email" />
+    <result column="DIT_ADDR" property="detailAddress" />
+    <result column="BAS_ADDR" property="basicAddress" />
+    <result column="PHO_PATH" property="filename" />
+    <result column="PHO_PATH" property="phoPath" />
+    <result column="TEL" property="telePhone" />
+    <result column="GEND" property="gender" />
+    <result column="REQ" property="request" />
+  </resultMap>
+
+    <select id="selectList" resultMap="realestatecontractMap"
+    parameterType="map">
+    select * from re_crct
+    where t_email=#{email}
+    order by CRCT_NO asc
+
+    limit #{startIndex}, #{length}
+  </select>
+
+  <select id="selectList1" resultMap="realestatecontractMap"
+    parameterType="map">
+    select t1.T_EMAIL, t1.BUILD_NO, t1.CRCT_NO, t1.CRCT_STAT, t2.NAME, t2.EMAIL, t2.PHO_PATH
+    from RE_CRCT as t1 LEFT OUTER JOIN MEMBS as t2
+    on t1.T_EMAIL = t2.EMAIL
+    where t2.AUTH = 1 and t1.CRCT_STAT=0 and t1.BUILD_NO=#{buildNo}
+    order by CRCT_NO desc
+
+    limit #{startIndex}, #{length}
+  </select>
+
+  <select id="selectList2" resultMap="realestatecontractMap"
+    parameterType="map">
+    select t1.T_EMAIL, t1.BUILD_NO, t1.CRCT_NO, t1.CRCT_STAT, t2.NAME, t2.EMAIL, t2.PHO_PATH
+    from RE_CRCT as t1 LEFT OUTER JOIN MEMBS as t2
+    on t1.T_EMAIL = t2.EMAIL
+    where t2.AUTH = 1 and t1.CRCT_STAT=1 and t1.BUILD_NO=#{buildNo}
+    order by CRCT_NO desc
+
+    limit #{startIndex}, #{length}
+  </select>
+
+  <select id="selectList3" resultMap="realestatecontractMap"
+    parameterType="map">
+    select t1.T_EMAIL, t1.BUILD_NO, t1.CRCT_NO, t1.CRCT_STAT, t2.NAME, t2.EMAIL, t2.PHO_PATH
+    from RE_CRCT as t1 LEFT OUTER JOIN MEMBS as t2
+    on t1.T_EMAIL = t2.EMAIL
+    where t2.AUTH = 1 and t1.CRCT_STAT=2 and t1.BUILD_NO=#{buildNo}
+    order by CRCT_NO desc
+
+    limit #{startIndex}, #{length}
+  </select>
+  
+  <select id="selectOne" resultMap="realestatecontractMap"
+    parameterType="int">
+    select T1.CRCT_NO, T1.BUILD_NO, T1.T_EMAIL, T1.CRCT_TYPE, T1.CRCT_DT, T1.END_DT, T1.DPST,
+    T1.UTPAY_DT, T1.RTPAY_DT, T1.CRCT_STAT, T1.R_AMNT, T2.BAS_ADDR, T2.DIT_ADDR, T2.NAME, T2.TEL, 
+    T2.GEND, T3.PHO_PATH
+    from RE_CRCT as T1 LEFT OUTER JOIN MEMBS as T2 
+    on T1.T_EMAIL = T2.EMAIL 
+    LEFT OUTER JOIN CRCT_PHO as T3
+    on T1.CRCT_NO = T3.CRCT_NO
+    where T1.CRCT_NO= #{value};
+  </select>
+  
+  <select id="selectRtpaydt" resultMap="realestatecontractMap" parameterType="map">
+    select b.rtpay_dt
+    from membs a left outer join re_crct b
+    on a.email=b.t_email
+    where a.email=#{email}
+  </select>
+    
+  <insert id="insert" parameterType="realestatecontract" useGeneratedKeys="true" keyColumn="contractNo" keyProperty="contractNo">
+    insert into RE_CRCT(BUILD_NO, T_EMAIL, CRCT_TYPE, DPST, CRCT_DT, END_DT,
+    RTPAY_DT, UTPAY_DT, CRCT_STAT)
+    values(#{buildNo}, #{tenantEmail}, #{contractType}, #{deposit},
+    #{contractDate}, #{endDate}, #{rentPayDate}, #{utilityPayDate}, #{contractStatus})
+  </insert>
+
+  <update id="update" parameterType="realestatecontract"
+    useGeneratedKeys="true" keyColumn="contractNo" keyProperty="contractNo">
+    update
+    RE_CRCT set
+    BUILD_NO=#{buildNo}, CRCT_TYPE=#{contractType},
+    DPST=#{deposit},
+    CRCT_DT=#{contractDate}, END_DT=#{endDate},
+    RTPAY_DT=#{rentPayDate},
+    UTPAY_DT=#{utilityPayDate}, CRCT_STAT=#{contractStatus}
+    where CRCT_NO=#{contractNo}
+  </update>
+  
+  <update id="updateReq" parameterType="realestatecontract">
+    update
+    RE_CRCT set
+    REQ=#{request}
+    where T_EMAIL=#{tenantEmail}
+  </update>
+
+  <delete id="delete" parameterType="int">
+    delete from re_crct
+    where CRCT_NO=#{value}
+  </delete>
+  
+  <select id="tenantList" resultMap="realestatecontractMap"
+      parameterType="map">
+      select B.T_EMAIL, C.NAME, C.TEL, C.DIT_ADDR, C.PHO_PATH, A.BAS_ADDR FROM RE A
+      INNER JOIN RE_CRCT B ON A.BUILD_NO = B.BUILD_NO INNER JOIN MEMBS C ON
+      B.T_EMAIL = C.EMAIL WHERE A.L_EMAIL=#{email}
+      order by CRCT_NO desc
+   </select>
+   
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

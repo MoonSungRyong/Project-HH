@@ -1,0 +1,121 @@
+@CHARSET "UTF-8";
+
+ html {
+	height: 100%;
+	display: table;
+  margin: auto;
+  box-sizing: border-box
+}
+
+body {
+	display: table-cell;
+	vertical-align: middle;
+	max-width: 1024px; height : 100%;
+  display: table-cell;
+  margin: 0 auto;
+  font-size: 15px;
+}
+
+hr {
+	color: black;
+}
+header {
+	border: 1px solid black;
+	width: 1020px;
+	height: 100px;
+	margin: 0 auto;
+}
+
+button {
+	width: 70px;
+	height: 35px;
+	margin: 0 auto;
+	float: right;
+}
+
+
+
+.thumbnail {
+	padding: 0;
+}
+
+.caption {
+	background-color: #d3d3d3;
+}
+
+.text_title {
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.contract_photo {
+	border: 1px solid black;	
+	float: left;
+}
+
+.col-md-4:hover {
+	opacity: .40;
+}
+
+.button_1 {
+	float: right;
+	margin: 0px 70px 0px 0px;
+}
+
+.crud-bar {
+	width: 1020px;
+	height: 35px;
+}
+
+.header_color {
+	background-color: #d3d3d3;
+}
+
+.xclose {
+  float: right;
+}
+
+#upload-drop {
+  margin-bottom: 30px;
+  border: dotted;
+  border-color: #f1f1f1;
+  padding: 31px;
+  background: #fafafa;
+}
+
+.titleLink {
+  color:black; 
+  text-decoration:none !important;
+  }
+  
+ .write_com {
+  position:absolute; 
+  top:20px; 
+  right:-30px;
+  margin-right: 200px;
+} 
+
+ 
+#complainTable .king {
+  width: 92%;
+  margin: auto;
+}
+
+#complainTable2 .kingking {
+  width: 92%;
+  margin: auto;
+}
+
+
+#complainTable .king > div {
+  margin: 0 5px 20px 5px;
+}
+
+#complainTable2 .kingking > div {
+  margin: 0 5px 20px 5px;
+}
+
+.complain_pagination {
+  text-align:center;
+}

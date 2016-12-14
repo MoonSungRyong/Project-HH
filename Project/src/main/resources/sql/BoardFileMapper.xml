@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="objackie.dao.BoardFileDao">
+  <resultMap type="boardFile" id="boardFileMap">
+    <id column="PHO_NO" property="no"/> 
+    <result column="BOD_NO" property="boardNo"/>
+    <result column="PHO_PATH" property="filename"/>
+  </resultMap>
+  
+  <insert id="insert" parameterType="board">
+    insert into BOD_PHO (BOD_NO, PHO_PATH)
+    values(#{boardNo}, #{filename})
+  </insert>
+
+ <delete id="delete" parameterType="int">
+ 	delete from bod_pho
+ 	where bod_no=#{boardNo}
+ </delete>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

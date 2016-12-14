@@ -1,0 +1,116 @@
+@CHARSET "UTF-8";
+
+body {
+	font-family: Nanum Gothic, Malgun Gothic, 맑은 고딕, dotum, 돋움,
+		Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
+}
+
+section {
+	width: 330px;
+	margin: 35px auto;
+}
+
+.header {
+	margin: 0;
+	line-height: 61px;
+	height: 55px;
+	font-size: 18px;
+	padding-left: 30px;
+	border-bottom: 1px solid #ddd;
+	border-top: 4px solid #ffde00;
+}
+
+.login-area-wrap {
+	text-align: left;
+	vertical-align: top;
+	display: inline-block;
+	border: 1px solid #ddd;
+	width: 300px;
+	height: 500px;
+	padding: 25px;
+}
+
+#kakao-profile img {
+    margin: 0px 28%;
+    border: 2px solid #ffde00;
+}
+
+div {
+	margin: 0 auto;
+}
+
+.login-area {
+	position: relative;
+	width: 270px;
+	height: 372px;
+}
+
+#kakaoUpdate {
+	position: relative;
+	vertical-align: top;
+	width: 100%;
+	height: 45px;
+	padding: 0;
+	font-size: 15px;
+	color: black;
+	text-align: center;
+	background: #ffef3f;
+	border: 0;
+	cursor: pointer;
+	-webkit-box-shadow: inset 0 -2px #ffef3f;
+	box-shadow: inset 0 -2px #ffef3f;
+	border-radius: 10px;
+}
+
+#logoutBtn {
+	color: black;
+	font-size: 13px;
+	margin-left: 6px;
+	padding-left: 6px;
+	margin-right: 0;
+	float: right;
+}
+
+.login-area input[type=text], input[type=password] {
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 22px;
+    height: 22px;
+    width: 240px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #e5e5e5;
+    letter-spacing: -1px;
+}
+
+input[type='radio'] {
+  -webkit-appearance:none;
+  width:15px;
+  height:15px;
+  border:1px solid #efefef;
+  border-radius:50%;
+  outline:none;
+}
+
+input[type='radio']:hover {
+  box-shadow:0 0 5px 0px #ffef3f inset;
+}
+
+label:hover {
+  cursor:pointer;
+}
+
+input[type='radio']:before {
+  content:'';
+  display:block;
+  width:60%;
+  height:60%;
+  margin: 20% auto;    
+  border-radius:50%;    
+}
+input[type='radio']:checked:before {
+  background:#ffef3f;
+}
+

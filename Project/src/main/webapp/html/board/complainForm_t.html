@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+ <link rel="shortcut icon" href="../../images/favicon.ico">
+<title>민원 확인</title>
+
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+
+<style>
+.container {
+  width: 600px;
+}
+</style>
+</head>
+<body>
+<div class="container">     
+
+<form class="form-horizontal">
+<div class="form-group my-view">
+  <div class="col-sm-10">
+    <input type="hidden" class="form-control" id="no" readonly>
+  </div>
+</div><br><br><br>
+<div class="form-group">
+<div><label for="title" class="col-sm-2 control-label">제목</label></div>
+ <div class="col-sm-10">
+<!-- <input type="text" class="form-control" id="title" style="background:white" readonly> -->
+<p id="title"></p>
+</div>
+</div>
+
+<div class="form-group">
+  <label for="contents" class="col-sm-2 control-label">내용</label>
+  <div class="col-sm-10">
+    <textarea id="contents" class="form-control" 
+              cols="50" rows="10" placeholder="내용입니다."  style="background:white" readonly></textarea>
+  </div>
+</div>
+<div class="form-group">
+  <label for="password" class="col-sm-2 control-label"></label>
+  <div class="col-sm-10">
+    <input type="hidden" id="password" class="form-control" 
+           placeholder="암호입력">
+  </div>
+</div>
+<div class="form-group my-view">
+  <label class="col-sm-2 control-label">등록일</label>
+  <div class="col-sm-10">
+    <p id="createdDate" class="form-control-static"></p>
+  </div>
+</div>
+<div class="form-group my-view">
+  <label class="col-sm-2 control-label">조회수</label>
+  <div class="col-sm-10">
+    <p id="viewCount" class="form-control-static"></p>
+  </div> 
+</div>
+<div class="form-group">
+  <div class="col-sm-offset-2 col-sm-10">
+    <button id="updateBtn" type="button" class="btn btn-default my-view">변경</button>
+    <button id="deleteBtn" type="button" class="btn btn-default my-view">삭제</button>
+    <button id="cancelBtn" type="button" class="btn btn-default"
+            onclick="location.href='complain_t.html'">취소</button>
+  </div>
+</div>
+</form>
+
+  
+</div><!-- div.container -->
+
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/bit.js"></script>
+<script type="text/javascript" src="../../js/board/complainForm_t.js"></script>
+<script>
+// URL에 no 파라미터 값이 넘어오면 조회 모드로 동작해야 한다.
+if (location.search.startsWith("?")) { // 예) ?no=xxx
+	  var no = location.search.split("=")[1];
+	  var rsvd = location.search.split("=")[2];
+	  //alert(rsvd);
+	  ajaxLoadComplain(no, rsvd) 
+	  }
+</script>
+
+
+</body>
+</html>

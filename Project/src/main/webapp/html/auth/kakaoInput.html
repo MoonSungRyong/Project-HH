@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="../..//images/kakao.ico" rel="shortcut icon">
+<link href="../../css/auth/kakaoInput.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../bower_components/sweetalert2/dist/sweetalert2.min.css">
+
+<meta charset="UTF-8">
+<title>회원가입 최초 설정</title>
+<style>
+.swal2-modal .swal2-title {
+	font-size: 20px;
+}
+
+.swal2-modal .swal2-content {
+	font-size: 16px;
+}
+
+.swal2-modal .swal2-styled {
+	font-size: 15px;
+	color: black;
+}
+.tabrow li.selected {
+  background: #FFF;
+  color: #000;
+}
+</style>
+</head>
+<body>
+   <header>
+      <div class="header">
+         <img alt="Logo_kakao" src="../../images/logo_kakao.png"> <span
+            class="right"> </span>
+      </div>
+   </header>
+   <section>
+      <div class="login-area-wrap">
+         <div class="login-area">
+            <div class="subtitle"></div>
+            <div class="container">
+               <form method="POST" id="login-form" style="align: right">
+                  <input type="hidden" name="type" value="w"> 
+                  <input type="hidden" name="continue"
+                     value="https://yellowid.kakao.com/join">
+                  <div class="email_tooltip" style="top: 70px; display: none;">
+                     <span class="arr" style="left: auto; right: 10px"></span>
+                  </div>
+              <input type="hidden" id="id" readonly>
+              <div id="kakao-profile"></div><br>
+                  <input type="text" id="name" placeholder="이름"><br>
+	          		<label for="GEND"><input type="radio" id="GEND" name="gend" checked>남</label>
+                  <label for="GEND1"><input type="radio" id="GEND1" name="gend">여</label><br> <br> 
+                  
+                  <input type="text" id="birth1" placeholder="생일 ex) 19800212"> 
+                  
+                  <label for="AUTH"><input type="radio" id="AUTH" name="auth" checked>임대인</label>
+                  <label for="AUTH1"><input type="radio" id="AUTH1" name="auth">세입자</label><br> <br>
+                 
+                 <input type="text" id="TEL" placeholder="전화번호 ( ' - ' 제외)"> <br> <br>
+
+                  <div><button type="button" id="kakaoUpdate">회원가입</button></div>
+                  <hr>
+                  <a id="logoutBtn">취소</a>
+                  
+   </section>
+
+
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script src="../../bower_components/es6-promise/es6-promise.auto.min.js"></script>
+	<script src="../../bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+
+   <script type="text/javascript">
+      
+   </script>
+
+
+   <!-- 카카오 최초 설정 -->
+   <script type="text/javascript">
+      $(document).ready(function() {
+         Kakao.init("bfb48672ff68dbf137c2daffb44adfb0"); <!-- 카카오 핀 번호 -->
+         
+         <!-- 카카오 회원 값 가져오기 -->
+         Kakao.API.request({
+            url : '/v1/user/me',
+            success : function(res) {
+               // console.log(res)
+               // console.log(res.id + " 님이 로그인 합니다.")
+               // console.log(res.properties.nickname + " 님이 로그인 합니다.")
+               $("#id").val(res.id);
+               $("#name").val(res.properties.nickname);
+               $("#kakao-profile").append($("<img/>",{"src":res.properties.thumbnail_image,"alt":res.properties.nickname+"님의 프로필 사진"}));
+               // console.log(res.properties.profile_image);
+               // console.log(res.properties.thumbnail_image);
+            
+         
+	         <!-- 카카오 최초 설정 값 입력하기 -->
+	         $("#kakaoUpdate").click(function(event) {
+	            if ($("#birth1").val().length != 8) {
+	            	swal({
+              		  	title: "생일이 형식에 맞지 않습니다.",
+              		  	type: 'error',
+              			confirmButtonText: '확인',
+          		  		confirmButtonColor: '#ffeb00'
+              		})
+	            }
+	            var birthMerge1 = $("#birth1").val().substring(0, 4);
+	            var birthMerge2 = $("#birth1").val().substring(4, 6);
+	            var birthMerge3 = $("#birth1").val().substring(6, 8);
+	            
+	            var member = {
+	              email: $("#id").val(),
+	              name: $("#name").val(),
+	              password: (Math.floor(Math.random() * 100000000)).toString(),
+	              tel: $("#TEL").val(),
+	              gender: $("#GEND").is(":checked") ? 0 : 1,
+	              birth: birthMerge1 + "-" + birthMerge2 + "-" + birthMerge3,
+	              auth: $("#AUTH").is(":checked") ? 0 : 1,
+	              phoPath: res.properties.thumbnail_image
+	            }
+	            
+	            if ((member.tel != "") && ($("#birth1").val() != "") && ($("#birth2").val() != "") && ($("#birth3").val() != "")) {
+	               //console.log("-----------" + member.email);
+	               var password = member.password;
+	               var gender = member.gender;
+	               var auth = member.auth;
+	               var birth = member.birth;
+	               var tel = member.tel;
+	               
+	               Kakao.API.request({
+	                  url : '/v1/user/update_profile',
+	                  data : {properties : {GEND : gender, AUTH : auth, BIRTH : birth, TEL : tel, PASSWORD : password}},
+	                  success : function(res) {
+	                     //console.log("카카오 DB에 저장 성공");
+	                     ajaxAddKakao(member);
+	                     
+	                  },
+	                  fail : function(error) {
+	                     alert(error);
+	                  }
+	               });
+	               
+	            } else {
+	               /* ------------------- 에러 출력 메시지 ------------------- */
+	               swal({
+              		  	title: "빈 공간이 있습니다.",
+              		  	type: 'error',
+              			confirmButtonText: '확인',
+          		  		confirmButtonColor: '#ffeb00'
+              		})
+	            }
+	            
+	         })
+            },
+            fail : function(error) {
+               console.log(error);
+            }
+         });
+         
+         function ajaxAddKakao(member) {
+            $.post(serverAddr + "/auth/join.json", member, function(obj) {
+               console.log(member);
+               var result = obj.jsonResult
+               if (result.state != "success") {
+            	   swal({
+             		  	title: "가입 실패입니다. 관리자에게 문의해 주세요.",
+             		  	type: 'error',
+             			confirmButtonText: '확인',
+         		  		confirmButtonColor: '#ffeb00'
+             		})
+                } else {
+                	swal({
+                		  title: '[ Home & Human ]',
+                		  text: "가입을 환영합니다. 로그인 해주세요.",
+                		  confirmButtonText: '확인',
+                		  confirmButtonColor: '#ffeb00'
+                		}).then(function () {
+                		  ajaxKakaoAutoLogout();
+                		})
+                }
+            }, "json")
+         }
+         
+         function ajaxKakaoAutoLogout() {
+            //alert("로그아웃 준비1");
+            Kakao.Auth.logout(function(data) {
+               //alert("로그아웃 준비2");
+               if(data){   //정상적으로 로그아웃이 되면 true가 떨어져서 처리하였습니다.
+                       window.location.href = serverAddr + "/html/index.html";
+                 }
+            });
+         }
+         
+         <!-- 카카오 로그아웃 -->
+         $("#logoutBtn").click(function(event) {
+            console.log("로그아웃");
+            Kakao.Auth.logout(function(data) {
+               if(data){   //정상적으로 로그아웃이 되면 true가 떨어져서 처리하였습니다.
+                       window.location.href = serverAddr + "/html/index.html";
+                 }
+            });
+         });
+      });
+   </script>
+</body>
+</html>

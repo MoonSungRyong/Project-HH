@@ -1,0 +1,122 @@
+@CHARSET "UTF-8";
+
+html {
+  font-size: 82%;
+}
+
+.yaybar ul > li.yay-user-info > a, .yaybar ul > li.yay-user-info > .sp-cancel {
+  height: 87.97px;
+}
+
+thead {
+  border: 0;
+}
+
+#main1 {
+  width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#main2 {
+  margin-top: -10px;
+}
+
+table {
+	margin-top: 20px;
+}
+
+.th_cell {
+  width: 300px;
+  height: 250px;
+  background: #f9f9f9;
+  border-right: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  padding-left: 20px;
+  font-size: 120%;
+}
+
+.td_cell {
+  width: 700px;
+  height: 250px;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  padding-left: 20px;
+}
+
+#insertBtn {
+	width: 100px;
+  height: 40px;
+  border: 1px solid #cccccc;
+  border-radius: 5px 5px 5px 5px;
+  background: #00aceb;
+  color: #fff;
+}
+
+#deleteBtn {
+	margin-left: 899px;
+  width: 100px;
+  height: 40px;
+  border: 1px solid #cccccc;
+  border-radius: 5px 5px 5px 5px;
+  background: #fff;
+}
+
+#reID {
+	width: 150px;
+	height: 40px;
+	border: 1px solid #cccccc;
+  border-radius: 5px 5px 5px 5px;
+}
+
+#postcode {
+  margin-top: 10px;
+  width: 100px;
+  height: 30px;
+  border: 1px solid #cccccc;
+  border-radius: 5px 5px 5px 5px;
+}
+
+#postBtn {
+  width: 100px;
+  height: 31px;
+  border: 1px solid #cccccc;
+  border-radius: 5px 5px 5px 5px;
+  background: #fff;
+}
+
+#address {
+  margin-top: 10px;
+  width: 400px;
+  height: 30px;
+  border: 1px solid #cccccc;
+  border-radius: 5px 5px 5px 5px;
+}
+
+#address2 {
+  width: 200px;
+  height: 30px;
+  border: 1px solid #cccccc;
+  border-radius: 5px 5px 5px 5px;
+}
+
+#agreeBtn {
+	margin-top: 20px;
+	margin-left: 410px;
+	margin-right: 10px; 
+  width: 100px;
+  height: 40px;
+  border: 1px solid #cccccc;
+  border-radius: 5px 5px 5px 5px;
+  background: #00aceb;
+  color: #fff;
+}
+
+#cancelBtn {
+  width: 100px;
+  height: 40px;
+  border: 1px solid #cccccc;
+  border-radius: 5px 5px 5px 5px;
+  background: #fff;
+}

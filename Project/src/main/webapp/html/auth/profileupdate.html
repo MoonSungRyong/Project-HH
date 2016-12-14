@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="_nK">
+<link rel="shortcut icon" href="../../images/favicon.ico">
+
+<title>Home &#38; Human</title>
+
+<link
+	href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'
+	rel='stylesheet' type='text/css'>
+
+<!-- nanoScroller -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/nanoscroller/bin/css/nanoscroller.css" />
+
+<!-- FontAwesome -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/fontawesome/css/font-awesome.min.css" />
+
+<!-- Material Design Icons -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/assets/material-design-icons/css/material-design-icons.min.css" />
+
+<!-- IonIcons -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/ionicons/css/ionicons.min.css" />
+
+<!-- WeatherIcons -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/weather-icons/css/weather-icons.min.css" />
+
+
+
+<!-- nvd3 -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/nvd3/build/nv.d3.min.css" />
+
+<!-- Main -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/assets/_con/css/con-base.css" />
+
+
+
+<!-- sseung -->
+<link rel="stylesheet" type="text/css"
+	href="../../css/dashboard/sseung.css" />
+
+<!-- dossierbit -->
+<link rel="stylesheet" type="text/css"
+	href="../../css/dashboard/dossierbit.css" />
+
+<!-- Sweet Alert -->
+<link rel="stylesheet"
+	href="../../bower_components/sweetalert2/dist/sweetalert2.min.css">
+
+<!--[if lt IE 9]>
+        <script src="../../bower_components/html5shiv/dist/html5shiv.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+<!--
+  Body
+    Options:
+      .boxed - boxed layout for content
+-->
+
+<body>
+	<!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
+	<!--
+     Top Navbar
+       Options:
+         .navbar-dark - dark color scheme
+         .navbar-static - static navbar
+         .navbar-under - under sidebar
+   -->
+	<nav class="navbar-top">
+		<div class="nav-wrapper">
+
+			<!-- Sidebar toggle -->
+			<a href="#" class="yay-toggle">
+				<div class="burg1"></div>
+				<div class="burg2"></div>
+				<div class="burg3"></div>
+			</a>
+			<!-- Sidebar toggle -->
+
+			<!-- Logo -->
+			<a href="../../html/index.html" class="hh-logo"> <img
+				src="../../images/hhlogo.png" alt="Home & Human">
+			</a>
+			<!-- /Logo -->
+
+			<!-- Menu -->
+			<ul>
+				<li><a class="dropdown-button" data-activates="test-dropdown"
+					href="#!"> <i class="mdi-communication-email"></i> <span
+						class="badge new">2</span>
+				</a>
+					<div id="test-dropdown" class="dropdown-content dropdown-media">
+						<div class="card-panel">
+
+							<div class="media-heading">
+								Messages <a href="mail-compose.html"><i
+									class="mdi-content-add-circle-outline"></i></a>
+							</div>
+
+							<div class="media-footer">
+								<a href="mail-inbox.html"><i
+									class="mdi-hardware-keyboard-control"></i></a>
+							</div>
+
+							<div class="row mt-0">
+								<div class="col s2">
+									<img src="../../bower_components/assets/_con/images/user2.jpg"
+										alt="" class="circle responsive-img">
+								</div>
+								<div class="col s10">
+									<span class="media-date">9:02 AM</span> <a href="#"
+										class="media-title">Dianne Chambers</a> <span> Ut
+										feugiat tempus felis, sit amet mattis dolor accumsan quis... </span>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col s2">
+									<img src="../../bower_components/assets/_con/images/user3.jpg"
+										alt="" class="circle responsive-img">
+								</div>
+								<div class="col s10">
+									<span class="media-date">Dec 19</span> <a href="#"
+										class="media-title">Joanne Stephens</a> <span> Proin
+										suscipit lobortis porta. Interdum et malesuada fames ac ante
+										ipsum primis in faucibus... </span>
+								</div>
+							</div>
+
+						</div>
+					</div></li>
+				<li class="user"><a class="dropdown-button"
+					data-activates="user-dropdown" href="#!"> <img id="myPhoto1"
+						src="" class="circle"><span id="userName1"></span><i
+						class="mdi-navigation-expand-more right"></i>
+				</a>
+
+					<ul id="user-dropdown" class="dropdown-content">
+						<li><a href="../auth/myinfo.html"> <i class="fa fa-user"></i>
+								내 정보
+						</a></li>
+						<li><a href="mail-inbox.html"> <i class="fa fa-envelope"></i>
+								알림 <span class="badge new">2</span>
+						</a></li>
+						<li class="divider"></li>
+						<li><a href="#" id="logout"> <i class="fa fa-sign-out"></i><span>
+									로그아웃 </span>
+						</a></li>
+						<li><a href="#" id="getOut"> <i class="fa fa-sign-out"></i><span>
+									카톡탈퇴 </span>
+						</a></li>
+					</ul></li>
+			</ul>
+			<!-- /Menu -->
+
+		</div>
+	</nav>
+	<!-- /Top Navbar -->
+	<!---------------------------------------------------------/탑 nav 부분------------------------------------------------------------>
+
+
+	<!---------------------------------------------------------사이드바 부분----------------------------------------------------------->
+	<!--
+  Yay Sidebar
+  Options [you can use all of theme classnames]:
+    .yay-hide-to-small         - no hide menu, just set it small with big icons
+    .yay-static                - stop using fixed sidebar (will scroll with content)
+    .yay-gestures              - to show and hide menu using gesture swipes
+    .yay-light                 - light color scheme
+    .yay-hide-on-content-click - hide menu on content click
+
+  Effects [you can use one of these classnames]:
+    .yay-overlay  - overlay content
+    .yay-push     - push content to right
+    .yay-shrink   - shrink content width
+-->
+	<aside class="yaybar yay-shrink yay-hide-to-small yay-gestures">
+
+		<div class="top">
+			<div>
+				<!-- Sidebar toggle -->
+				<a href="#" class="yay-toggle">
+					<div class="burg1"></div>
+					<div class="burg2"></div>
+					<div class="burg3"></div>
+				</a>
+				<!-- Sidebar toggle -->
+
+				<!-- Logo -->
+				<a href="#!" class="brand-logo"> <img
+					src="../../images/hhlogo.png" alt="Home & Human">
+				</a>
+				<!-- /Logo -->
+			</div>
+		</div>
+
+		<div class="nano">
+			<div class="nano-content">
+
+				<ul>
+					<li class="yay-user-info"><a href="#" id="myinfoLink"> <img
+							id="myPhoto2" src="" class="circle"
+							onerror="this.onerror=null;this.src='../../images/user_default.png'">
+							<h3 class="yay-user-info-name">
+								<span id="userName2"></span>
+							</h3>
+							<div class="yay-user-location">
+								<i class="fa fa-map-marker"></i><span id="authLevel"></span>
+							</div>
+					</a></li>
+
+					<li class="label">메뉴</li>
+
+					<li><a href="#"
+						class=" waves-effect waves-blue" id="dashboardLink"> <i
+							class="fa fa-tachometer"></i> <span> Home &#38; Human </span>
+					</a></li>
+					<li><a href="#" class="waves-effect waves-blue"
+						id="gongziLink"> <i class="fa fa-check"></i> <span>
+								공지사항 </span>
+					</a></li>
+					<li><a href="#" class="waves-effect waves-blue"
+						id="complainLink"> <i class="fa fa-bullhorn"></i> <span>
+								민원사항 </span>
+					</a></li>
+					<li><a href="#" class=" waves-effect waves-blue"
+						id="buildingLink"> <i class="fa fa-building-o"></i> <span>
+								건물정보 </span>
+					</a></li>
+					<li><a href="#" class=" waves-effect waves-blue"
+						id="tenantLink"> <i class="fa fa-users"></i> 세입자관리
+					</a></li>
+					<li><a href="#" class=" waves-effect waves-blue"
+						id="freeBoardLink"> <i class="fa fa-hand-o-right"></i> <span>
+								자유게시판 </span>
+					</a></li>
+				</ul>
+
+			</div>
+		</div>
+	</aside>
+	<!-- /Yay Sidebar -->
+	<!---------------------------------------------------------/사이드바 부분------------------------------------------------------------>
+
+
+	<!------------------------------------------------------------메인 부분-------------------------------------------------------------->
+	<!-- Main Content -->
+	<section class="content-wrap">
+
+		<!-- Breadcrumb -->
+		<div class="page-title" style="height: 80px;">
+
+			<div class="row">
+				<div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
+					<a href="../../html/index.html" class="hh-logo-black"> <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
+					</a>
+					<h1>내 정보</h1>
+				</div>
+			</div>
+
+		</div>
+		<!-- /Breadcrumb -->
+
+		<div class="row sortable" style="margin-right: 0;">
+
+			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
+			<div class="row">
+				<div class="col l12 s12">
+					<div class="card">
+						<div class="title card-panel grey darken-4 white-text">
+							<h5>프로필 수정</h5>
+						</div>
+						<div class="content" style="padding-right: 0;">
+							<div class="col l6 s12">
+								<div class="card">
+									<div class="title card-panel blue-grey white-text">
+										<h5>프로필 사진</h5>
+									</div>
+									<div class="content" style="height: 220px;">
+										<form id="profileForm">
+											<input type="hidden" name="email0" id="loginUserEmail0">
+											<div class="col l4 s12">
+												<div id="profilePhoto">
+													<a href="#"> <img id="phoPath1"
+														style="width: 100%; height: 136px; radius: 50px;" src="" />
+													</a>
+												</div>
+											</div>
+
+											<div class="col l8 s12" style="padding-right: 0;">
+												<div class="file-field input-field col l12 s12"
+													style="padding-top: 22%;">
+													<div class="btn">
+														<span>첨부파일</span> <input type="file" name="file"
+															id="ex_file" style="height: 25%; margin-top: 22%;">
+													</div>
+													<div class="file-path-wrapper">
+														<input class="file-path validate" type="text">
+													</div>
+													<input id="hiddenPwd" name="password2" type="hidden"
+														class="form-control">
+												</div>
+											</div>
+											<input type="hidden" name="password3" id="password3">
+										</form>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="col l6 s12">
+								<div class="card">
+									<div class="title card-panel blue-grey white-text">
+										<h5>비밀번호</h5>
+									</div>
+									<div class="content">
+										<form name="password_form">
+											<input type="hidden" name="email1" id="loginUserEmail1">
+											<div class="input-field col l12 s12"
+												style="padding-bottom: 0;">
+												<i class="mdi-content-send prefix"></i> <input
+													type="password" class="form-control" name="password1"
+													onkeyup="verify.check()"> <label for="input_text">새
+													비밀번호</label>
+											</div>
+											<div class="input-field col l12 s12"
+												style="padding-bottom: 0;">
+												<i class="mdi-content-send prefix"></i> <input
+													type="password" class="form-control" id="passwordUp"
+													name="password2" onkeyup="verify.check()"> <label
+													for="input_text">새 비밀번호 확인</label>
+											</div>
+											<!-- Display a message if the passwords match or don't match -->
+											<div class="input-field col l12 s12"
+												style="padding-bottom: 0;">
+												<div id="password_result"></div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+
+							<div class="col l12 s12" style="padding-bottom: 0;">
+								<a class="waves-effect waves-dark btn cyan" id="updateBtn"
+									style="width: 100%;">적용</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+		</div>
+	</section>
+	<!-- /Main Content -->
+	<!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
+
+	<!---------------------------------------------------------푸터 부분---------------------------------------------------------->
+	<footer>
+		&copy; 2016 <strong>Objackie</strong> Java85.
+	</footer>
+	<!--------------------------------------------------------/푸터 부분---------------------------------------------------------->
+
+	<!-- DEMO [REMOVE IT ON PRODUCTION] -->
+	<script type="text/javascript"
+		src="../../bower_components/assets/_con/js/_demo.js"></script>
+
+	<!-- jQuery -->
+	<script type="text/javascript"
+		src="../../bower_components/jquery/dist/jquery.min.js"></script>
+
+	<!-- jQuery RAF (improved animation performance) -->
+	<script type="text/javascript"
+		src="../../bower_components/jquery-requestAnimationFrame/dist/jquery.requestAnimationFrame.min.js"></script>
+
+	<!-- nanoScroller -->
+	<script type="text/javascript"
+		src="../../bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js"></script>
+
+	<!-- Materialize -->
+	<script type="text/javascript"
+		src="../../bower_components/materialize/bin/materialize.js"></script>
+
+	<!-- Sortable -->
+	<script type="text/javascript"
+		src="../../bower_components/Sortable/Sortable.min.js"></script>
+
+	<!-- Main -->
+	<script type="text/javascript"
+		src="../../bower_components/assets/_con/js/_con.js"></script>
+
+	<!-- Loading Bar -->
+	<script type="text/javascript" src="../../js/pace.js"></script>
+
+	<!-- Link Sort -->
+	<script type="text/javascript" src="../../js/link.js"></script>
+
+	<!-- Common Dashboard -->
+	<script type="text/javascript" src="../../js/commonDashboard.js"></script>
+
+	<!-- Sweet Alert -->
+	<script
+		src="../../bower_components/es6-promise/es6-promise.auto.min.js"></script>
+	<script
+		src="../../bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+
+
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/bit.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+	<script type="text/javascript" src="//cdn.poesis.kr/post/search.min.js"></script>
+	<script type="text/javascript" src="../../js/auth/profileupdate.js"></script>
+
+	<script>
+		ajaxDashboardUser();
+		ajaxLoginUser();
+	</script>
+
+	<!-- 사진 미리보기 -->
+	<script type="text/javascript">
+		$(function() {
+			$("#ex_file").on('change', function() {
+				readURL(this);
+			});
+		});
+
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function(e) {
+					$('#phoPath1').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+	</script>
+
+
+</body>
+
+</html>
+

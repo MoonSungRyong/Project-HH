@@ -1,0 +1,70 @@
+@CHARSET "UTF-8";
+
+.tenant-title {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.tenant-writer {
+	font-size: 12px;
+}
+
+.button-group {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+}
+
+.complain_pagination {
+	text-align: center;
+}
+
+.complain_radio {
+	position: fixed;
+	bottom: 40px;
+	left: 50px;
+}
+
+.write_com {
+	width: 100%;
+}
+
+.thumbnail {
+	position: relative;
+	height: 230px;
+	overflow: hidden;
+}
+
+.thumbnail img {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 100%;
+	width: auto;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.thumbnail img.portrait {
+	width: 100%;
+	height: auto;
+}
+
+.indicator {
+	width: 50%;
+}
+
+#ex_file {
+	height: 40px;
+}
+
+.ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1; /* 라인수 */
+	-webkit-box-orient: vertical;
+	word-wrap: break-word;
+	}
+

@@ -1,0 +1,134 @@
+@CHARSET "UTF-8";
+
+html {
+	font-size: 82%;
+}
+
+.yaybar ul>li.yay-user-info>a, .yaybar ul>li.yay-user-info>.sp-cancel {
+	height: 87.97px;
+}
+
+thead {
+	border: 0;
+}
+
+#main {
+	width: 1000px;
+	height: 750px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#profile {
+	width: 410px;
+	height: 300px;
+	border: 1px solid #cccccc;
+	margin: 35px 20px 20px 35px;
+	padding-left: 30px;
+	float: left;
+}
+
+#pro_group {
+	top: 15%;
+	left: 230px;
+	position: absolute;
+}
+
+td, th {
+	display: table-cell;
+	text-align: left;
+	vertical-align: middle;
+	border-radius: 2px;
+}
+
+.td_cell1 {
+	padding-right: 20px;
+	padding-bottom: 10px;
+}
+
+.td_cell2 {
+	padding-bottom: 10px;
+}
+
+#phoPath {
+	width: 100px;
+	height: 100px;
+	margin-top: 25px;
+	background-position: 0 0;
+}
+
+#proUpBtn {
+	top: 275px;
+	width: 100px;
+	height: 40px;
+	position: absolute;
+	background: #fff;
+	border-radius: 5px;
+	border: 1px solid #cccccc;
+	color: #4a4a4a;
+	border-radius: 5px;
+}
+
+#contact {
+	width: 535px;
+	height: 300px;
+	border: 1px solid #dadada;
+	margin: 35px 0px 20px 0px;
+	padding-left: 30px;
+	float: left;
+}
+
+.td_cell3 {
+	padding-top: 20px;
+	padding-right: 30px;
+	padding-bottom: 10px;
+}
+
+.td_cell4 {
+	padding-right: 30px;
+	padding-bottom: 10px;
+}
+
+.td_cell5 {
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+.td_cell6 {
+	padding-bottom: 10px;
+}
+
+#contactUpBtn {
+	margin-top: 45px;
+	width: 100px;
+	height: 40px;
+	background: #fff;
+	border-radius: 5px;
+	border: 1px solid #cccccc;
+	color: #4a4a4a;
+	position: absolute;
+}
+
+#buildinfo {
+	width: 965px;
+	height: 300px;
+	border: 1px solid #cccccc;
+	margin: 0 20px 20px 35px;
+	padding-left: 30px;
+	float: left;
+}
+
+#buildUpBtn {
+	margin-top: 80px;
+	width: 100px;
+	height: 40px;
+	background: #fff;
+	border-radius: 5px;
+	border: 1px solid #cccccc;
+	color: #4a4a4a;
+}
+
+.membleave {
+	clear: both;
+	margin-left: 35px;
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="shortcut icon" href="../../images/favicon.ico">
+<title>건물 등록</title>
+<link id="data-uikit-theme" rel="stylesheet"
+	href="../../node_modules/uikit/dist/css/uikit.min.css">
+<link id="data-uikit-theme" rel="stylesheet"
+	href="../../node_modules/uikit/dist/css/uikit.gradient.min.css">
+<link id="data-uikit-theme" rel="stylesheet"
+	href="../../node_modules/uikit/dist/css/uikit.almost-flat.min.css">
+<link id="data-uikit-theme" rel="stylesheet"
+	href="../../node_modules/uikit/docs/css/uikit.docs.min.css">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="css/uikit.docs.min.css">
+<style>
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+</style>
+</head>
+
+<body>
+
+	<form class="uk-form uk-form-stacked">
+
+                                    <div class="uk-form-row">
+                                        <label class="uk-form-label" for="form-s-it">건물명</label>
+                                        <div class="uk-form-controls">
+                                            <input type="text" id="form-s-it" placeholder="건물 이름을 등록해주세요">
+                                        </div>
+                                    </div>
+                                    <div class="uk-form-row">
+                                        <label class="uk-form-label" for="form-s-ip">주소</label>
+                                        <div class="uk-form-controls">
+                                            <input type="password" id="form-s-ip" placeholder="">
+                                            <a class="uk-button" href="">우편번호</a>
+                                            <div class="uk-form-row"><input type="text" id="form-s-ip" style="width:275px"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="uk-form-row">
+                                        <label class="uk-form-label" for="form-s-s">건물 유형</label>
+                                        <div class="uk-form-controls">
+                                            <select id="form-s-s">
+                                                <option>원룸</option>
+                                                <option>오피스텔</option>
+                                                <option>다세대 주택</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                 	   <div class="uk-form-row">
+                                        <span class="uk-form-label">주차 가능여부</span>
+                                        <div class="uk-form-controls">
+                                            <label><input type="radio" name="radio"> 가능</label>
+                                            <label><input type="radio" name="radio"> 불가능</label>
+                                        </div>
+                                    </div>
+                                 
+                                  <!--   <div class="uk-form-row">
+                                        <label class="uk-form-label" for="form-s-t">Textarea</label>
+                                        <div class="uk-form-controls">
+                                            <textarea id="form-s-t" cols="30" rows="5" placeholder="Textarea text"></textarea>
+                                        </div>
+                                    </div>
+                                 
+                                    <div class="uk-form-row">
+                                        <span class="uk-form-label">Checkbox input</span>
+                                        <div class="uk-form-controls">
+                                            <input type="checkbox" id="form-s-c"> <label for="form-s-c">Checkbox input</label><br>
+                                            <input type="checkbox" id="form-s-c1"> <label for="form-s-c1">1</label>
+                                            <label><input type="checkbox"> 2</label>
+                                            <label><input type="checkbox"> 3</label>
+                                        </div>
+                                    </div>
+                                    <div class="uk-form-row">
+                                        <span class="uk-form-label">Mixed controls</span>
+                                        <div class="uk-form-controls">
+                                            <input type="checkbox" id="form-s-mix1"> <label for="form-s-mix1">Checkbox input</label>
+                                            <input type="number" id="form-s-mix2" min="0" max="10" value="5" class="uk-form-width-mini uk-form-small"> <label for="form-s-mix2">Number input</label>
+                                            <select id="form-s-mix3" class="uk-form-small">
+                                                <option selected="selected">Option 01</option>
+                                                <option>Option 02</option>
+                                            </select>
+                                            <label for="form-s-mix3">Select field</label>
+                                        </div>
+                                    </div> -->
+
+                            </form>
+	<br>
+
+	<div class="bottom_btn_area">
+		<input type="button" class="uk-button uk-button-primary" value="등록" onclick="javascript:writeCheck();"> 
+		
+		<input type="button" class="uk-button" value="취소" onclick="fnObj.moveView();">
+	</div>
+	</div>
+	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+
+	<script src="../../node_modules/uikit/dist/js/uikit.min.js"></script>
+	<script src="../../node_modules/uikit/dist/js/components/upload.js"></script>
+	<script src="../../node_modules/uikit/vendor/jquery.js"></script>
+	<script src="../../node_modules/uikit/dist/js/uikit.min.js"></script>
+	<script src="../../node_modules/uikit/vendor/highlight/highlight.js"></script>
+	<script src="../../node_modules/uikit/docs/js/docs.js"></script>
+	<script src="../../node_modules/uikit/dist/js/components/upload.js"></script>
+
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/bit.js"></script>
+	<script>
+    </body>
+</html>

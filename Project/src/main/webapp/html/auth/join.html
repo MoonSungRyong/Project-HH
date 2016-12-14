@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+ <link rel="shortcut icon" href="../../images/favicon.ico">
+<title>회원가입</title>
+
+</head>
+<body>
+	<div id="member">
+
+		<!-- <h1>회원가입</h1> -->
+		<p>
+			이메일 <span id="email-check" style="float: right;"></span>
+				   <span id="checkedEmail" style="float: right;"></span>
+			<input id="email" type="text" name="email" class="placeholder"
+				placeholder="이메일">
+		</p>
+<br>
+		<p>
+			비밀번호 <span id="password-check" style="float: right;"></span>
+			<input id="password" type="password" name="password"
+				class="placeholder" placeholder="비밀번호">
+		</p>
+<br>
+		<p>
+			이름 <span id="name-check" style="float: right;"></span>
+			<input id="name" type="text" name="name" class="placeholder"
+				placeholder="이름">
+		</p>
+<br>
+		<p>
+			연락처 <span id="tel-check" style="float: right;"></span>
+			<input id="tel" type="text" name="tel" class="placeholder"
+				placeholder="연락처">
+		</p>
+<br>
+		<p>
+		<div id="radio">
+			<div data-radio-custom>
+				<input id="gender" type="radio" name="genMaterial" value="남자" checked>
+				<input type="radio" name="genMaterial" value="여자">
+			</div>
+		</div>
+		</p>
+<br><br><br><br>
+		<!-- <p>생년월일</p> -->
+		<input id="birth1" type="text" name="user_birth_year"
+			class="placeholder" placeholder="년(4자)"> <select id="birth2"
+			name="user_birth_month">
+			<option value="월">월</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+		</select> <input id="birth3" type="text" name="user_birth_day"
+			class="placeholder" placeholder="일">
+<br><br>
+		<div id="radio">
+			<div data-radio-custom>
+				<p>
+					<input id="auth" type="radio" name="material" value="임대인" checked>
+					<input type="radio" name="material" value="임차인">
+				</p>
+			</div>
+		</div>
+
+		<button id="joinBtn" type="button">가입하기</button>
+		<a href="#"></a>
+	</div>
+
+	<script type="text/javascript" src="../js/auth/join.js"></script>
+
+</body>
+</html>

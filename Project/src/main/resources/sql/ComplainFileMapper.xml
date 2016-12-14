@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="objackie.dao.ComplainFileDao">
+	<resultMap type="complainFile" id="complainFileMap">
+		<id column="PHO_NO" property="no" />
+		<result column="BOD_NO" property="complainNo" />
+		<result column="PHO_PATH" property="filename" />
+	</resultMap>
+
+	<select id="selectOne" resultMap="complainFileMap"
+		parameterType="int">
+		select * from BOD_PHO
+		where BOD_NO=#{complainNo}
+	</select>
+
+	<insert id="insert" parameterType="complain">
+		insert into BOD_PHO (BOD_NO, PHO_PATH)
+		values(#{complainNo}, #{filename})
+	</insert>
+
+	<update id="update" parameterType="complain">
+		update BOD_PHO
+		set PHO_PATH = #{filename}
+		where BOD_NO = #{complainNo}
+	</update>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

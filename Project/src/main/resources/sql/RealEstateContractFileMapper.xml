@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="objackie.dao.RealEstateContractFileDao">
+  <resultMap type="realestatecontractFile" id="realestatecontractFileMap">
+    <id column="PHO_NO" property="PhotoNo"/>
+    <result column="CRCT_NO" property="contractNo"/> 
+    <result column="PHO_PATH" property="filename"/>
+  </resultMap>
+  
+  <insert id="insert" parameterType="realestatecontractFile">
+    insert into crct_pho (CRCT_NO, PHO_PATH)
+    values(#{contractNo}, #{filename})
+  </insert>
+  
+  <select id="selectOne" resultMap="realestatecontractFileMap" parameterType="int">
+    select CRCT_NO, PHO_PATH
+    from CRCT_PHO    
+    where CRCT_NO= #{contractNo};
+  </select>
+  
+  <update id="update" parameterType="realestatecontractFile">
+    update CRCT_PHO set
+    PHO_PATH=#{filename}
+    where CRCT_NO=#{contractNo}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from crct_pho
+    where CRCT_NO=#{CRCT_NO}
+  </delete>  
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

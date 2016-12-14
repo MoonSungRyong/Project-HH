@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="objackie.dao.ReplyDao">
+	<resultMap type="reply" id="replyMap">
+		<id column="RPLY_NO" property="reno" />
+		<result column="BOD_NO" property="no" />
+		<result column="EMAIL" property="email" />
+		<result column="CONTS" property="reContents" />
+		<result column="CRD_DT" property="createdDate" />
+		<result column="PHO_PATH" property="phoPath" />
+	</resultMap>
+
+	<select id="selectList" resultMap="replyMap" parameterType="int">
+		select A.RPLY_NO, A.EMAIL, A.CONTS, A.CRD_DT, A.BOD_NO, B.NAME, B.PHO_PATH
+		from BOD_RPLY A LEFT OUTER JOIN MEMBS B ON A.EMAIL = B.EMAIL
+		where BOD_NO=#{no}
+		order by RPLY_NO desc
+	</select>
+
+	<select id="selectOne" resultMap="replyMap" parameterType="int">
+		select RPLY_NO,CONTS,BOD_NO,EMAIL,CRD_DT
+		from bod_rply
+		where RPLY_NO = #{reno}
+	</select>
+
+	<insert id="insert" parameterType="reply">
+		insert into bod_rply(EMAIL, CONTS, CRD_DT, BOD_NO)
+		values(#{email}, #{reContents}, now(), #{no})
+	</insert>
+
+	<update id="update" parameterType="reply">
+		update bod_rply set
+		CONTS=#{reContents}
+		where RPLY_NO=#{reno}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		delete from bod_rply
+		where RPLY_NO=#{value}
+	</delete>
+
+	<delete id="delete1" parameterType="int">
+		delete from bod_rply
+		where BOD_NO=#{BOD_NO}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

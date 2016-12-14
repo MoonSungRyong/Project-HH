@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="objackie.dao.MyinfoDao">
+  <resultMap type="member" id="memberMap">
+    <id column="EMAIL" property="email" />
+    <result column="NAME" property="name" />
+    <result column="TEL" property="tel" />
+    <result column="GEND" property="gender" />
+    <result column="birth" property="birth" />
+    <result column="POSTNO" property="postNO" />
+    <result column="BAS_ADDR" property="basicAddr" />
+    <result column="DIT_ADDR" property="detailAddr" />
+    <result column="PHO_PATH" property="phoPath" />
+    <result column="AUTH" property="auth" />
+    <result column="PWD" property="password" />
+  </resultMap>
+
+  <select id="selectList" resultMap="memberMap" parameterType="map">
+    select EMAIL, NAME, TEL, GEND, BIRTH, POSTNO, BAS_ADDR, DIT_ADDR, PHO_PATH, AUTH, PWD
+    from MEMBS
+    limit #{startIndex}, #{length}
+  </select>
+
+  <select id="selectOne" resultMap="memberMap" parameterType="string">
+    select EMAIL, NAME, TEL, GEND, BIRTH, POSTNO, BAS_ADDR, DIT_ADDR, PHO_PATH, AUTH, PWD
+    from MEMBS
+    where EMAIL=#{email}
+  </select>
+
+  <select id="selectOneByEmailAndPassword" resultMap="memberMap" parameterType="map">
+    select EMAIL, NAME, TEL, GEND, BIRTH, POSTNO, BAS_ADDR, DIT_ADDR, PHO_PATH, AUTH, PWD
+    from MEMBS
+    where EMAIL=#{email} and PWD=#{password}
+  </select>
+  
+  <insert id="insert" parameterType="Member">
+    insert into MEMBS(EMAIL, PHO_PATH)
+    values(#{email})
+  </insert>
+  
+  <update id="update" parameterType="member">
+    update MEMBS set
+      PWD=#{password},
+      TEL=#{tel},
+      POSTNO=#{postNo},
+      BAS_ADDR=#{basicAddr},
+      DIT_ADDR=#{detailAddr},
+      PHO_PATH=#{phoPath}
+    where EMAIL=#{email}
+  </update>
+  
+  <delete id="delete" parameterType="string">
+    delete from MEMBS
+    where EMAIL=#{value}
+  </delete>
+</mapper>

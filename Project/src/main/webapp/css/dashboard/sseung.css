@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+
+.hover:hover {
+	background-color: beige;
+}
+
+#myPhoto1, #myPhoto2 {
+	height: 45px;
+	width: 45px;
+}
+
+.row .effect-sarah {
+  background: #0d47a1;
+}
+
+.swal2-modal .swal2-title {
+	font-size: 20px;
+}
+
+.swal2-modal .swal2-content {
+	font-size: 16px;
+}
+
+.swal2-modal .swal2-styled {
+	font-size: 15px;
+	color: black;
+}
+.tabrow li.selected {
+  background: #FFF;
+  color: #000;
+}
+
+.sseungNo {
+	width: 5%;
+}
+
+.sseungImg {
+	width: 10%;
+}
+
+.sseungTitle {
+	width: 53%;
+}
+
+.sseungWriter {
+	width: 10%;
+}
+
+.sseungDay {
+	width: 12%;
+}
+
+.sseungCount {
+	width: 10%;
+}
+
+
+
+
+
+
+
+
+
+
+
+

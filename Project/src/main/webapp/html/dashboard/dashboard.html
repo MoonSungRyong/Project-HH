@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="_nK">
+<link rel="shortcut icon" href="../../images/favicon.ico">
+
+<title>Home &#38; Human</title>
+
+<link
+	href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'
+	rel='stylesheet' type='text/css'>
+
+<!-- nanoScroller -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/nanoscroller/bin/css/nanoscroller.css" />
+
+<!-- FontAwesome -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/fontawesome/css/font-awesome.min.css" />
+
+<!-- Material Design Icons -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/assets/material-design-icons/css/material-design-icons.min.css" />
+
+<!-- IonIcons -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/ionicons/css/ionicons.min.css" />
+
+<!-- WeatherIcons -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/weather-icons/css/weather-icons.min.css" />
+
+
+
+<!-- nvd3 -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/nvd3/build/nv.d3.min.css" />
+
+<!-- Main -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/assets/_con/css/con-base.css" />
+
+
+
+<!-- Full Calendar -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/fullcalendar/dist/fullcalendar.min.css" />
+
+<!-- sseung -->
+<link rel="stylesheet" type="text/css"
+	href="../../css/dashboard/sseung.css" />
+
+<!-- dossierbit -->
+<link rel="stylesheet" type="text/css"
+	href="../../css/dashboard/dossierbit.css" />
+
+<!-- pace -->
+<link rel="stylesheet" type="text/css" href="../../css/pace.css" />
+
+
+<!--[if lt IE 9]>
+        <script src="../../bower_components/html5shiv/dist/html5shiv.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+<!--
+  Body
+    Options:
+      .boxed - boxed layout for content
+-->
+
+<body>
+	<div class="pace"></div>
+	<!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
+	<!--
+     Top Navbar
+       Options:
+         .navbar-dark - dark color scheme
+         .navbar-static - static navbar
+         .navbar-under - under sidebar
+   -->
+	<nav class="navbar-top">
+		<div class="nav-wrapper">
+
+			<!-- Sidebar toggle -->
+			<a href="#" class="yay-toggle">
+				<div class="burg1"></div>
+				<div class="burg2"></div>
+				<div class="burg3"></div>
+			</a>
+			<!-- Sidebar toggle -->
+
+			<!-- Logo -->
+			<a href="../../html/index.html" class="hh-logo"> <img
+				src="../../images/hhlogo.png" alt="Home & Human">
+			</a>
+			<!-- /Logo -->
+
+			<!-- Menu -->
+			<ul>
+				<li><a class="dropdown-button" data-activates="test-dropdown"
+					href="#!"> <i class="mdi-communication-email"></i> <span
+						class="badge new">2</span>
+				</a>
+					<div id="test-dropdown" class="dropdown-content dropdown-media">
+						<div class="card-panel">
+
+							<div class="media-heading">
+								Messages <a href="mail-compose.html"><i
+									class="mdi-content-add-circle-outline"></i></a>
+							</div>
+
+							<div class="media-footer">
+								<a href="mail-inbox.html"><i
+									class="mdi-hardware-keyboard-control"></i></a>
+							</div>
+
+							<div class="row mt-0">
+								<div class="col s2">
+									<img src="../../bower_components/assets/_con/images/user2.jpg"
+										alt="" class="circle responsive-img">
+								</div>
+								<div class="col s10">
+									<span class="media-date">9:02 AM</span> <a href="#"
+										class="media-title">Dianne Chambers</a> <span> Ut
+										feugiat tempus felis, sit amet mattis dolor accumsan quis... </span>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col s2">
+									<img src="../../bower_components/assets/_con/images/user3.jpg"
+										alt="" class="circle responsive-img">
+								</div>
+								<div class="col s10">
+									<span class="media-date">Dec 19</span> <a href="#"
+										class="media-title">Joanne Stephens</a> <span> Proin
+										suscipit lobortis porta. Interdum et malesuada fames ac ante
+										ipsum primis in faucibus... </span>
+								</div>
+							</div>
+
+						</div>
+					</div></li>
+				<li class="user"><a class="dropdown-button"
+					data-activates="user-dropdown" href="#!"> <img id="myPhoto1"
+						src="" class="circle"><span id="userName1"></span><i
+						class="mdi-navigation-expand-more right"></i>
+				</a>
+
+					<ul id="user-dropdown" class="dropdown-content">
+						<li><a href="../auth/myinfo.html"> <i class="fa fa-user"></i>
+								내 정보
+						</a></li>
+						<li><a href="mail-inbox.html"> <i class="fa fa-envelope"></i>
+								알림 <span class="badge new">2</span>
+						</a></li>
+						<li class="divider"></li>
+						<li><a href="#" id="logout"> <i class="fa fa-sign-out"></i><span>
+									로그아웃 </span>
+						</a></li>
+						<li><a href="#" id="getOut"> <i class="fa fa-sign-out"></i><span>
+									카톡탈퇴 </span>
+						</a></li>
+					</ul></li>
+			</ul>
+			<!-- /Menu -->
+
+		</div>
+	</nav>
+	<!-- /Top Navbar -->
+	<!---------------------------------------------------------/탑 nav 부분------------------------------------------------------------>
+
+
+	<!---------------------------------------------------------사이드바 부분----------------------------------------------------------->
+	<!--
+  Yay Sidebar
+  Options [you can use all of theme classnames]:
+    .yay-hide-to-small         - no hide menu, just set it small with big icons
+    .yay-static                - stop using fixed sidebar (will scroll with content)
+    .yay-gestures              - to show and hide menu using gesture swipes
+    .yay-light                 - light color scheme
+    .yay-hide-on-content-click - hide menu on content click
+  Effects [you can use one of these classnames]:
+    .yay-overlay  - overlay content
+    .yay-push     - push content to right
+    .yay-shrink   - shrink content width
+-->
+	<aside class="yaybar yay-shrink yay-hide-to-small yay-gestures">
+
+		<div class="top">
+			<div>
+				<!-- Sidebar toggle -->
+				<a href="#" class="yay-toggle">
+					<div class="burg1"></div>
+					<div class="burg2"></div>
+					<div class="burg3"></div>
+				</a>
+				<!-- Sidebar toggle -->
+
+				<!-- Logo -->
+				<a href="#!" class="brand-logo"> <img
+					src="../../images/hhlogo.png" alt="Home & Human">
+				</a>
+				<!-- /Logo -->
+			</div>
+		</div>
+
+		<div class="nano">
+			<div class="nano-content">
+
+				<ul>
+					<li class="yay-user-info"><a href="#" id="myinfoLink"> <img
+							id="myPhoto2" src="" class="circle"
+							onerror="this.onerror=null;this.src='../../images/user_default.png'">
+							<h3 class="yay-user-info-name">
+								<span id="userName2"></span>
+							</h3>
+							<div class="yay-user-location">
+								<i class="fa fa-map-marker"></i><span id="authLevel"></span>
+							</div>
+					</a></li>
+
+					<li class="label">메뉴</li>
+
+					<li class="active"><a href="#"
+						class=" waves-effect waves-blue" id="dashboardLink"> <i
+							class="fa fa-tachometer"></i> <span> Home &#38; Human </span>
+					</a></li>
+					<li><a href="#" class="waves-effect waves-blue"
+						id="gongziLink"> <i class="fa fa-check"></i> <span>
+								공지사항 </span>
+					</a></li>
+					<li><a href="#" class="waves-effect waves-blue"
+						id="complainLink"> <i class="fa fa-bullhorn"></i> <span>
+								민원사항 </span>
+					</a></li>
+					<li><a href="#" class=" waves-effect waves-blue"
+						id="buildingLink"> <i class="fa fa-building-o"></i> <span>
+								건물정보 </span>
+					</a></li>
+					<li><a href="#" class=" waves-effect waves-blue"
+						id="tenantLink"> <i class="fa fa-users"></i> 세입자관리
+					</a></li>
+					<li><a href="#" class=" waves-effect waves-blue"
+						id="freeBoardLink"> <i class="fa fa-hand-o-right"></i> <span>
+								자유게시판 </span>
+					</a></li>
+				</ul>
+
+			</div>
+		</div>
+	</aside>
+	<!-- /Yay Sidebar -->
+	<!---------------------------------------------------------/사이드바 부분------------------------------------------------------------>
+
+
+	<!------------------------------------------------------------메인 부분-------------------------------------------------------------->
+	<!-- Main Content -->
+	<section class="content-wrap">
+
+		<!-- Breadcrumb -->
+		<div class="page-title" style="height: 80px;">
+
+			<div class="row">
+				<div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
+					<a href="../../html/index.html" class="hh-logo-black"> <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
+					</a>
+					<h1>Home &#38; Human</h1>
+				</div>
+			</div>
+
+		</div>
+		<!-- /Breadcrumb -->
+
+		<div class="row sortable">
+
+			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
+			<!-- 공지사항 Card -->
+			<div class="col l12 s12">
+				<div class="card">
+					<div class="title card-panel grey darken-4 white-text">
+						<h5>
+							<i class="fa fa-check"></i> 최근 공지사항
+						</h5>
+						<a class="minimize" href="#"> <i
+							class="mdi-navigation-expand-less"></i>
+						</a>
+					</div>
+					<div class="content orders-card">
+						<a href="#" id="gongzi_detail"> <span id="gongzi_title"
+							class="card-title activator grey-text text-darken-4"></span>
+							<p id="gongzi_contents"></p>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- /공지사항 Card -->
+
+			<!-- 건물정보 Card -->
+			<div class="col l6 s12">
+				<div class="card">
+					<div class="title card-panel grey darken-4 white-text">
+						<h5>
+							<i class="fa fa-building-o"></i> 건물정보
+						</h5>
+						<a class="minimize" href="#"> <i
+							class="mdi-navigation-expand-less"></i>
+						</a>
+					</div>
+					<div class="content orders-card"
+						style="padding: 0; height: 300px; overflow-y: scroll">
+						<!-- 핸들바스 부분 -->
+						<ul id="buildListTable">
+						</ul>
+						<!-- /핸들바스 부분 -->
+					</div>
+				</div>
+			</div>
+			<!-- /건물정보 Card -->
+
+			<!-- 세입자 Card -->
+			<div class="col l6 s12">
+				<div class="card">
+					<div class="title card-panel grey darken-4 white-text">
+						<h5>
+							<i class="fa fa-users"></i> 세입자 정보
+						</h5>
+						<a class="minimize" href="#"> <i
+							class="mdi-navigation-expand-less"></i>
+						</a>
+					</div>
+					<div class="content orders-card"
+						style="padding: 0; height: 300px; overflow-y: scroll">
+						<!-- 핸들바스 부분 -->
+						<ul id="tenantListTable">
+						</ul>
+						<!-- /핸들바스 부분 -->
+					</div>
+				</div>
+			</div>
+			<!-- /세입자 Card -->
+
+			<!-- 달력 & 일정정보 Card -->
+			<div class="col l12 s12">
+				<div class="card">
+					<div class="title card-panel grey darken-4 white-text">
+						<h5>
+							<i class="fa fa-calendar-o"></i> 달력 &#38; 일정
+						</h5>
+						<a class="minimize" href="#"> <i
+							class="mdi-navigation-expand-less"></i>
+						</a>
+					</div>
+					<div class="content orders-card">
+						<div class="col s12 l9">
+							<!-- 달력 -->
+							<div class="card">
+								<div id="calendar"></div>
+							</div>
+							<!-- /달력 -->
+						</div>
+
+						<div class="col s12 l3" style="padding-right: 0;">
+							<!-- 일정목록 -->
+							<div class="card">
+								<div class="title card-panel grey darken-2 white-text">
+									<h5>
+										<i class="fa fa-list-ul"></i> 일정 목록
+									</h5>
+								</div>
+								<div class="content orders-card">
+
+									<ul class="collapsible" data-collapsible="expandable">
+										<li class="active">
+											<div
+												class="collapsible-header active blue-grey lighten-2 accent-1 white-text">
+												<i class="mdi-image-filter-drama"></i>미처리
+											</div>
+											<div class="collapsible-body">
+												<p>701호 미처리</p>
+												<p>702호 미처리</p>
+											</div>
+										</li>
+										<li class="active">
+											<div
+												class="collapsible-header active blue-grey lighten-2 accent-1 white-text">
+												<i class="mdi-maps-place"></i>납부
+											</div>
+											<div class="collapsible-body">
+												<p>608호 납부</p>
+												<p>609호 납부</p>
+											</div>
+										</li>
+										<li class="active">
+											<div
+												class="collapsible-header active blue-grey lighten-2 accent-1 white-text">
+												<i class="mdi-social-whatshot"></i>연체
+											</div>
+											<div class="collapsible-body">
+												<p>509호 연체</p>
+												<p>508호 연체</p>
+											</div>
+										</li>
+										<li class="active">
+											<div
+												class="collapsible-header active blue-grey lighten-2 accent-1 white-text">
+												<i class="mdi-social-whatshot"></i>기타
+											</div>
+											<div class="collapsible-body">
+												<p>코딩약속</p>
+												<p>저녁약속</p>
+												<p>미팅약속</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- /일정목록 -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /달력 & 일정정보 Card -->
+
+			<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+		</div>
+	</section>
+	<!-- /Main Content -->
+	<!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
+
+
+
+	<!---------------------------------------------------------푸터 부분---------------------------------------------------------->
+	<footer>
+		&copy; 2016 <strong>Objackie</strong> Java85.
+	</footer>
+	<!--------------------------------------------------------/푸터 부분---------------------------------------------------------->
+
+	<!-- DEMO [REMOVE IT ON PRODUCTION] -->
+	<script type="text/javascript"
+		src="../../bower_components/assets/_con/js/_demo.js"></script>
+
+	<!-- jQuery -->
+	<script type="text/javascript"
+		src="../../bower_components/jquery/dist/jquery.min.js"></script>
+
+	<!-- jQuery RAF (improved animation performance) -->
+	<script type="text/javascript"
+		src="../../bower_components/jquery-requestAnimationFrame/dist/jquery.requestAnimationFrame.min.js"></script>
+
+	<!-- nanoScroller -->
+	<script type="text/javascript"
+		src="../../bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js"></script>
+
+	<!-- Materialize -->
+	<script type="text/javascript"
+		src="../../bower_components/materialize/bin/materialize.js"></script>
+
+
+
+	<!-- Full Calendar -->
+	<script type="text/javascript"
+		src="../../bower_components/moment/min/moment.min.js"></script>
+
+	<script type="text/javascript"
+		src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
+	<script type="text/javascript"
+		src="../../bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+
+
+	<!-- Sortable -->
+	<script type="text/javascript"
+		src="../../bower_components/Sortable/Sortable.min.js"></script>
+
+	<!-- Main -->
+	<script type="text/javascript"
+		src="../../bower_components/assets/_con/js/_con.js"></script>
+
+	<!-- Loading Bar -->
+	<script type="text/javascript" src="../../js/pace.js"></script>
+
+	<!-- Link Sort -->
+
+	<script type="text/javascript" src="../../js/link.js"></script>
+
+	<!-- Common Dashboard -->
+	<script type="text/javascript" src="../../js/commonDashboard.js"></script>
+
+	<script>
+		/* 
+		 * Init Calendar
+		 */
+		$('#calendar').fullCalendar({
+			height : 700,
+			header : {
+				left : 'prev,next',
+				center : 'title',
+				right : ''
+			},
+			editable : true,
+			droppable : true,
+			drop : function() {
+				// is the "remove after drop" checkbox checked?
+				if (removeDraggable.is(':checked')) {
+					// if so, remove the element from the "Draggable Events" list
+					$(this).remove();
+				}
+			}
+			
+		/* 
+		events: [{
+		    title: 'All Day Event',
+		    start: '2015-02-01'
+		}, {
+		    title: 'Long Event',
+		    start: '2015-02-07',
+		    end: '2015-02-10'
+		}, {
+		    id: 999,
+		    title: 'Repeating Event',
+		    start: '2015-02-09T16:00:00'
+		}, {
+		    id: 999,
+		    title: 'Repeating Event',
+		    start: '2015-02-16T16:00:00'
+		}, {
+		    title: 'Conference',
+		    start: '2015-02-11',
+		    end: '2015-02-13'
+		}, {
+		    title: 'Meeting',
+		    start: '2015-02-12T10:30:00',
+		    end: '2015-02-12T12:30:00'
+		}, {
+		    title: 'Lunch',
+		    start: '2015-02-12T12:00:00'
+		}, {
+		    title: 'Meeting',
+		    start: '2015-02-12T14:30:00'
+		}, {
+		    title: 'Click for Google',
+		    url: 'http://google.com/',
+		    start: '2015-02-28'
+		}]
+		 */
+		});
+	</script>
+
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/bit.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+	<script type="text/javascript" src="../../js/dashboard/dashboard.js"></script>
+
+	<script>
+		ajaxDashboardUser();
+		ajaxTenantList();
+		ajaxFirstList();
+		ajaxLoginUserList()
+	</script>
+
+	<script id="tenantList" type="text/x-handlebars-template">
+	{{#each list}}
+		<li>
+			<div class="col l12 s12 hover" style="padding-top: 20px; height: 94px;">
+				<a href="#">
+					<div class="col l3 s12 center-align">
+						<img src="../../upload/{{phoPath}}" onerror="this.src='../../images/user_default.png'" class="circle" style="width: 50px; height: 50px;">
+					</div>
+					<div class="col l9 s12" style="height: 50px;">
+						<h4>{{name}}</h4>
+						<p style="overflow: hidden; height: 16px;">전화번호 : {{telePhone}} <span> |  기본주소 : {{basicAddress}}</span></p>
+						<hr>
+					</div>
+				</a>
+			</div>
+		</li>
+		
+	{{/each}}
+	</script>
+	<script id="buildList" type="text/x-handlebars-template">
+	{{#each data}}
+		<li>
+			<div class="col l12 s12 hover" style="padding-left: 40px; padding-top: 20px; height: 94px;">
+				<a href="../auth/myinfo.html">
+					<div class="col l12 s12" style="height: 50px;">
+						<h4>{{reID}}</h4>
+						<p>상세주소 : {{basicAddr}}</p>
+						<hr>
+					</div>
+				</a>
+			</div>
+		</li>
+	{{/each}}
+	</script>
+
+</body>
+
+</html>

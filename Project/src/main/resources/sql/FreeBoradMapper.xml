@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="objackie.dao.FreeBoardDao">
+	<resultMap type="freeboard" id="freeboardMap">
+		<id column="BOD_NO" property="boardNo" />
+		<result column="TYPE" property="type" />
+		<result column="EMAIL" property="email" />
+		<result column="CONTS" property="contents" />
+		<result column="CRE_DT" property="createDate" />
+		<result column="VW_CNT" property="viewCount" />
+		<result column="TITLE" property="title" />
+		<result column="WRITER" property="writer" />
+		<result column="PHO_PATH" property="filename" />
+	</resultMap>
+
+	<select id="selectList" resultMap="freeboardMap" parameterType="map">
+    select A.BOD_NO, A.WRITER, A.EMAIL, A.TITLE, A.CRE_DT, A.VW_CNT, A.CONTS, B.PHO_PATH
+	from BOARD A LEFT OUTER JOIN BOD_PHO B
+	on A.BOD_NO = B.BOD_NO
+    where A.TYPE=3
+    <if test="keyword != ''">
+     and ((A.TITLE like concat('%',#{keyword},'%'))
+     or (A.WRITER like concat('%',#{keyword},'%')))
+    </if>      
+    order by BOD_NO desc
+
+    limit #{startIndex}, #{length}
+  </select>
+
+	<select id="selectOne" resultMap="freeboardMap" parameterType="int">
+		select A.BOD_NO, A.WRITER, A.EMAIL, A.TITLE, A.CRE_DT, A.VW_CNT,
+		A.CONTS, B.PHO_PATH
+		from BOARD A LEFT OUTER JOIN BOD_PHO B
+		on A.BOD_NO = B.BOD_NO
+		where A.BOD_NO = #{value}
+	</select>
+
+	<insert id="insert" parameterType="freeboard" useGeneratedKeys="true"
+		keyColumn="boardNo" keyProperty="boardNo">
+		insert into board(EMAIL, TYPE, TITLE, CONTS, VW_CNT, CRE_DT, WRITER)
+		values(#{email}, 3, #{title}, #{contents}, 0, now(), #{writer})
+	</insert>
+
+	<update id="update" parameterType="freeboard" useGeneratedKeys="true"
+    keyColumn="boardNo" keyProperty="boardNo">
+		update board set
+		TITLE=#{title}, CONTS=#{contents}
+		where BOD_NO=#{boardNo}
+	</update>
+
+	<update id="updateVW_CNT" parameterType="int">
+		update board
+		set VW_CNT=VW_CNT+1
+		where BOD_NO=#{boardNo}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		delete from board
+		where BOD_NO=#{boardNo}
+	</delete>
+
+	<select id="countAll" resultType="int">
+		select count(*)
+		from board
+		where type=3
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,238 @@
+@CHARSET "UTF-8";
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+h1 {
+  text-align: center;
+  font-size: 300%;
+}
+
+h3 {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+ol,ul {
+  list-style: none;
+}
+
+blockquote,q {
+  quotes: none;
+}
+
+blockquote:before,blockquote:after,q:before,q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* CSS Animations */
+@keyframes "member" {
+ 0% {
+    filter: alpha(opacity=0);
+    opacity: 0;
+    margin-top: -50px;
+ }
+ 100% {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+    margin-top: -75px;
+ }
+
+}
+
+@-moz-keyframes login {
+ 0% {
+   filter: alpha(opacity=0);
+   opacity: 0;
+   margin-top: -50px;
+ }
+ 100% {
+   filter: alpha(opacity=100);
+   opacity: 1;
+   margin-top: -75px;
+ }
+
+}
+
+@-webkit-keyframes "login" {
+ 0% {
+   filter: alpha(opacity=0);
+   opacity: 0;
+   margin-top: -50px;
+ }
+ 100% {
+   filter: alpha(opacity=100);
+   opacity: 1;
+   margin-top: -75px;
+ }
+
+}
+
+@-ms-keyframes "login" {
+ 0% {
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+   filter: alpha(opacity=0);
+   opacity: 0;
+   margin-top: -50px;
+ }
+ 100% {
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+   filter: alpha(opacity=100);
+   opacity: 1;
+   margin-top: -75px;
+ }
+
+}
+
+@-o-keyframes "login" {
+ 0% {
+   filter: alpha(opacity=0);
+   opacity: 0;
+   margin-top: -50px;
+ }
+ 100% {
+   filter: alpha(opacity=100);
+   opacity: 1;
+   margin-top: -75px;
+ }
+
+}
+
+/* Main CSS */
+* { 
+  box-sizing: border-box;
+  }
+
+body {
+  font-family: sans-serif;
+  background-image: linear-gradient(bottom, #323B55 0%, #424F71 100%);
+}
+
+#member {
+  width: 400px;
+  height: 155px;
+  position: absolute;
+  left: 135px;
+  top: 15%;
+  margin-left: -110px;
+  margin-top: -75px;
+  animation: login 1s ease-in-out;
+}
+
+#member label {
+  display: none;
+}
+
+.placeholder {
+  color: #444;
+}
+
+#mBtn {
+  width: 197px;
+  margin-right: 5px;
+  float: left;
+}
+
+#fBtn {
+  width: 197px;
+  float: left;
+}
+
+#joinBtn {
+	margin-top: 20px;
+	width: 100%;
+	height: 50px;
+  border: 1px solid #00aceb; 
+  border-radius: 5px;
+  background: #00aceb;
+  color: #fff;
+  font-size: 20px;
+}
+
+.glyphicon {
+  display: none;
+}
+
+#member [name="email"], #member [name="password"], #member [name="name"], #member [name="tel"] {
+  width: 100%;
+  height: 40px;
+  positon: relative;
+  margin-top: 7px;
+  font-size: 14px;
+  color: #444;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, .49);
+  padding-left: 20px;
+  background-clip: padding-box;
+  border-radius: 6px;
+  background-image: linear-gradient(bottom, #FFFFFF 0%, #F2F2F2 100%);
+  box-shadow: inset 0px 2px 0px #d9d9d9;
+  transition: all .1s ease-in-out;
+}
+
+#member [name="user_birth_year"], #member [name="user_birth_month"], #member [name="user_birth_day"] {
+  width: 129.5px;
+  height: 40px;
+  positon: relative;
+  margin-top: 7px;
+  font-size: 14px;
+  color: #444;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, .49);
+  /* padding-left: 20px; */
+  background-clip: padding-box;
+  border-radius: 6px;
+  background-image: linear-gradient(bottom, #FFFFFF 0%, #F2F2F2 100%);
+  box-shadow: inset 0px 2px 0px #d9d9d9;
+  transition: all .1s ease-in-out;
+}
+
+#member input[type="text"]:focus,#member input[type="password"]:focus {
+  box-shadow: inset 0px 2px 0px #a7a7a7;
+}
+
+/* radio */
+#radio label {
+  margin:0 auto;
+  display: block;
+  width: 200px;
+  height: 40px;
+  float: left;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 2px solid gray;
+  text-align: center;
+  padding-top: 12px;
+}
+
+#radio label.selected {
+  border:2px solid #00aceb;
+  background-color: #00aceb;
+  color: #fff;
+}
+
+#join-modal-content {
+  width: 450px;
+  height: 650px;
+  top: -100px;
+  margin-left: 85px;
+}
+
+.modal.in .modal-dialog {
+  margin-top: 100px;
+}

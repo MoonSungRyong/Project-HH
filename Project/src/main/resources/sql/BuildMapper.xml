@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="objackie.dao.BuildDao">
+	<resultMap type="build" id="buildMap">
+		<id column="BUILD_NO" property="buildNo" />
+		<result column="L_EMAIL" property="email" />
+		<result column="T_EMAIL" property="TEmail" />
+		<result column="NAME" property="name" />
+		<result column="AUTH" property="auth" />
+		<result column="RE_ID" property="reID" />
+		<result column="POSTNO" property="postNo" />
+		<result column="BAS_ADDR" property="basicAddr" />
+		<result column="DIT_ADDR" property="detailAddr" />
+		<result column="RE_TYPE" property="reType" />
+		<result column="PK" property="park" />
+		<result column="RTPAY_DT" property="rentPayDate" />
+		<result column="REQ" property="request" />
+	</resultMap>
+
+	<select id="selectList" resultMap="buildMap" parameterType="map">
+		select A.EMAIL, A.NAME, A.AUTH, B.BUILD_NO, B.RE_ID, B.POSTNO,
+		B.BAS_ADDR, B.DIT_ADDR, B.RE_TYPE, B.PK
+		from MEMBS A RIGHT JOIN RE B ON A.EMAIL = B.L_EMAIL
+		where A.AUTH=0 and B.L_EMAIL=#{email}
+		order by B.BUILD_NO asc
+	</select>
+
+	<select id="selectOne" resultMap="buildMap" parameterType="int">
+		select L_EMAIL, RE_ID, POSTNO, BAS_ADDR, RE_TYPE, PK, DIT_ADDR
+		from RE
+		where BUILD_NO=#{buildNo}
+	</select>
+
+	<select id="selectLEmail" resultMap="buildMap" parameterType="map">
+		select a.l_email
+		from re a left outer join re_crct b
+		on a.build_no = b.build_no
+		where b.t_email=#{TEmail}
+	</select>
+	
+	<select id="selectReqList" resultMap="buildMap" parameterType="map">
+    select A.build_no, A.l_email, B.t_email, A.re_id, b.rtpay_dt, c.name
+    from re a inner join re_crct b
+    on a.build_no = b.build_no
+    left outer join membs c
+    on b.t_email = c.email
+    where a.l_email=#{email} and req=1;
+  </select>
+
+	<insert id="insert" parameterType="build">
+		insert into re(L_EMAIL, RE_ID, POSTNO, BAS_ADDR, DIT_ADDR, RE_TYPE, PK)
+		values(#{email}, #{reID}, #{postNo}, #{basicAddr}, #{detailAddr},
+		#{reType}, #{park})
+	</insert>
+
+	<update id="update" parameterType="build">
+		update re set
+		RE_ID=#{reID},
+		POSTNO=#{postNo},
+		BAS_ADDR=#{basicAddr},
+		DIT_ADDR=#{detailAddr},
+		RE_TYPE=#{reType},
+		PK=#{park}
+		where BUILD_NO=#{buildNo}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		delete from re
+		where BUILD_NO=#{buildNo}
+	</delete>
+
+</mapper>

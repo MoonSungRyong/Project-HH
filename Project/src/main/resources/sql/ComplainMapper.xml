@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="objackie.dao.ComplainDao">
+	<resultMap type="complain" id="complainMap">
+		<id column="bod_no" property="no" />
+		<result column="TYPE" property="type" />
+		<result column="EMAIL" property="email" />
+		<result column="CONTS" property="contents" />
+		<result column="CRE_DT" property="createdDate" />
+		<result column="VW_CNT" property="viewCount" />
+		<result column="TITLE" property="title" />
+		<result column="WRITER" property="writer" />
+		<result column="PHO_PATH" property="filename" />
+	</resultMap>
+
+	<select id="selectList" resultMap="complainMap" parameterType="map">
+		select BOD_NO, TITLE, CONTS, CRE_DT, VW_CNT, WRITER
+		from BOARD
+		where
+		TYPE=1
+
+		order by BOD_NO desc
+
+		limit #{startIndex}, #{length}
+	</select>
+
+	<select id="selectListbyRsvd0" resultMap="complainMap"
+		parameterType="map">
+
+		select distinct D.BOD_NO, D.TITLE, D.CONTS, D.CRE_DT,
+		D.VW_CNT, D.WRITER,
+		P.PHO_PATH
+		from re A left join re_crct B on
+		A.build_no = B.build_no
+		left join membs C on B.T_EMAIL = C.EMAIL
+		left
+		join board D on C.EMAIL = D.EMAIL
+		left join BOD_PHO P on D.BOD_NO =
+		P.BOD_NO
+		where A.L_EMAIL=#{email} and D.TYPE=1 and D.RSVD=0
+
+		order by
+		lastUpdated desc
+
+		limit #{startIndex}, #{length}
+	</select>
+
+	<select id="selectListbyRsvd1" resultMap="complainMap"
+		parameterType="map">
+
+		select distinct D.BOD_NO, D.TITLE, D.CONTS, D.CRE_DT,
+		D.VW_CNT, D.WRITER,
+		P.PHO_PATH
+		from re A left join re_crct B on
+		A.build_no = B.build_no
+		left join membs C on B.T_EMAIL = C.EMAIL
+		left
+		join board D on C.EMAIL = D.EMAIL
+		left join BOD_PHO P on D.BOD_NO = P.BOD_NO
+		where A.L_EMAIL=#{email} and D.TYPE=1 and D.RSVD=1
+
+		order by
+		lastUpdated desc
+
+		limit #{startIndex}, #{length}
+	</select>
+
+
+
+	<select id="selectListbyRsvd0_t" resultMap="complainMap"
+		parameterType="map">
+
+		SELECT distinct
+		B.BOD_NO,
+		B.EMAIL,
+		B.TYPE,
+		B.TITLE,
+		B.CONTS,
+		B.VW_CNT,
+		B.CRE_DT,
+		B.WRITER,
+		B.RSVD,
+		P.PHO_PATH
+		FROM board B
+		LEFT JOIN
+		BOD_PHO P
+		on B.BOD_NO = P.BOD_NO
+		WHERE B.EMAIL = #{email} AND B.TYPE = 1
+		AND B.RSVD = 0
+
+
+		order by lastUpdated desc
+
+		limit #{startIndex}, #{length}
+	</select>
+
+	<select id="selectListbyRsvd1_t" resultMap="complainMap"
+		parameterType="map">
+
+		SELECT distinct
+		B.BOD_NO,
+		B.EMAIL,
+		B.TYPE,
+		B.TITLE,
+		B.CONTS,
+		B.VW_CNT,
+		B.CRE_DT,
+		B.WRITER,
+		B.RSVD,
+		P.PHO_PATH
+		FROM board B
+		LEFT JOIN
+		BOD_PHO P
+		on B.BOD_NO = P.BOD_NO
+		WHERE B.EMAIL = #{email} AND B.TYPE = 1
+		AND B.RSVD = 1
+
+
+		order by lastUpdated desc
+
+		limit #{startIndex}, #{length}
+	</select>
+
+	<select id="selectOne" resultMap="complainMap" parameterType="int">
+		select bod_no,title,cre_dt,vw_cnt,conts,writer
+		from BOARD
+		where bod_no =
+		#{value}
+	</select>
+
+	<insert id="insert" parameterType="complain" useGeneratedKeys="true"
+		keyColumn="no" keyProperty="no">
+		insert into board(EMAIL, TYPE, TITLE,
+		CONTS, VW_CNT, CRE_DT, WRITER)
+		values(#{email}, 1, #{title},
+		#{contents}, 0, now(), #{writer})
+	</insert>
+
+	<update id="update" parameterType="complain">
+		update board set
+		TITLE=#{title},
+		CONTS=#{contents},
+		RSVD=#{rsvd}
+		where BOD_NO=#{no}
+	</update>
+
+	<update id="update0" parameterType="complain">
+		update board set
+		TITLE=#{title},
+		CONTS=#{contents}
+		where BOD_NO=#{no}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		delete from board
+		where
+		BOD_NO=#{no}
+	</delete>
+
+	<select id="countAll" resultType="int">
+		select count(*)
+		from board
+		where
+		TYPE=1
+	</select>
+
+	<select id="countAllRsvd0" resultType="int">
+		select count(*)
+		from board
+		where TYPE=1 and RSVD=0
+	</select>
+
+	<select id="countAllRsvd1" resultType="int">
+		select count(*)
+		from board
+		where TYPE=1 and RSVD=1
+	</select>
+</mapper>
+
+
+
+
